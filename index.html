@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<!-- Place favicon.ico in the root directory -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.0/css/bulma.css">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	</head>
+	<body>
+		<section class="hero is-fullheight is-primary is-bold">
+			<div class="hero-body">
+				<div class="container has-text-centered element-main" id='quiz-feedback' data-page-number='0'>
+					<h1>Right wrong</h1>
+					<h3>Feedback</h3>
+					<div id='quiz-feedback-video-container'></div>
+				</div>
+				<div class="container has-text-centered element-main" id='welcome' data-page-number='0'>
+					<h3>Welkom bij de Ongehoord quiz</h3>
+					<div>
+						<a href='#' id='quiz-start-button' class='button'>Start!</a>
+					</div>
+				</div>
+				<div class="container has-text-centered element-main" id='quiz' data-page-number='0'>
+					<h3 class="title is-2" id='quiz-question'></h3>
+					<ul id='quiz-answers'></ul>
+				</div>
+			</div>
+		</section>
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+		<script src="js/plugins.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

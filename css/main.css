@@ -1,0 +1,8 @@
+.element-main {
+	display:none;
+}
+
+#quiz-feedback {}
+	#quiz-feedback.answer-right { background:green; }
+	#quiz-feedback.answer-wrong { background:red; }
+	

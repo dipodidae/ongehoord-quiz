@@ -1,0 +1,437 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"kaj",
+				"kajsa-text"
+			],
+			[
+				"scroll",
+				"scrollTo"
+			],
+			[
+				"click",
+				"clickMenuItem"
+			],
+			[
+				"text-",
+				"text-transform"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"packa ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"packa update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"",
+				"Package Control: Remove Package"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 424.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Tom/Desktop/quiz"
+	],
+	"file_history":
+	[
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/styles/common/_variables.scss",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/scripts/lib/scrolling-nav.js",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/front-page.php",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_navs.scss",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/styles/common/_global.scss",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_navbar.scss",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/lib/wp_bootstrap_navwalker.php",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/scripts/main.js",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/templates/header.php",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/templates/footer.php",
+		"/C/Users/Tom/Desktop/test.html",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/manifest.json",
+		"/C/Users/Tom/Documents/bpt.sublime-project",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/scripts/lib/jquery.easing.min.js",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/scripts/lib/test.js",
+		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/styles/main.scss",
+		"/C/Users/Tom/AppData/Roaming/Sublime Text 3/Packages/User/Plain text.sublime-settings",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/assets/styles/common/_global.scss",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/templates/header.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/base.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/front-page.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/templates/head.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/assets/styles/main.scss",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_navbar.scss",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/assets/styles/common/_variables.scss",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/gulpfile.js",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/index.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/template-custom.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/templates/content.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/page.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/single.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/templates/content-page.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/bodypositivetraining/ruleset.xml",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/style.css",
+		"/C/Users/Tom/Documents/bodypositivetraining.dev2.sublime-project",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/index.php",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/templates/header.php",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/page.php",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/assets/styles/main.scss",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/assets/styles/common/_global.scss",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/assets/styles/common/_variables.scss",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/assets/manifest.json",
+		"/C/Users/Tom/Documents/Vagrant/bodypositivetraining.nl/site/web/app/themes/sage/lang/sage.pot",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/sage/templates/front-page.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/sage/base-front-page.php",
+		"/C/Users/Tom/Documents/bodypositivetraining.dev.sublime-project",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/FoundationPress/assets/scss/global/_settings.scss",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/sage/lib/setup.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/sage/index.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/FoundationPress/assets/javascript/foundation.js",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/sage/lib/customizer.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/sage/functions.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/sage/lib/wrapper.php",
+		"/C/Users/Tom/Documents/Vagrant/VVV/www/wordpress-default/wp-content/themes/sage/lib/extras.php",
+		"/C/Users/Tom/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Tom/Documents/Vagrant/ongehoord.dev/trellis/group_vars/development/wordpress_sites.yml",
+		"/C/Users/Tom/Documents/Vagrant/ongehoord.dev/trellis/group_vars/development/vault.yml",
+		"/C/Users/Tom/Documents/Vagrant/ongehoord.dev/trellis/group_vars/development/main.yml",
+		"/C/Users/Tom/Documents/Vagrant/ongehoord.dev/trellis/group_vars/development/mail.yml",
+		"/C/Users/Tom/Documents/Vagrant/ongehoord.dev/trellis/group_vars/development/php.yml",
+		"/C/Users/Tom/Documents/Vagrant/ongehoord.dev/site/.env.example",
+		"/C/Users/Tom/Documents/Vagrant/portfolio/trellis/group_vars/development/main.yml",
+		"/C/Users/Tom/Documents/Vagrant/portfolio/trellis/group_vars/development/mail.yml",
+		"/C/Users/Tom/Documents/Vagrant/portfolio/trellis/group_vars/development/php.yml",
+		"/C/Users/Tom/Documents/Vagrant/portfolio/trellis/group_vars/development/wordpress_sites.yml",
+		"/C/Users/Tom/Documents/portfolio/trellis/group_vars/development/wordpress_sites.yml",
+		"/C/Users/Tom/Documents/trellis/requirements.yml",
+		"/C/Users/Tom/Documents/trellis/Vagrantfile",
+		"/C/Users/Tom/Documents/trellis/server.yml",
+		"/C/Users/Tom/Documents/trellis/ansible.cfg",
+		"/C/Users/Tom/Documents/trellis/.gitignore",
+		"/C/Users/Tom/Documents/trellis/README.md",
+		"/C/Users/Tom/Documents/trellis/hosts/production",
+		"/C/Users/Tom/Documents/trellis/hosts/development",
+		"/C/Users/Tom/Documents/trellis/hosts/staging"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Users\\Tom\\Documents\\Vagrant\\VVV\\www\\wordpress-default",
+			"C:\\Users\\Tom\\Documents\\Vagrant\\ongehoord.dev",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"$(",
+			"$",
+			"Application",
+			"start_el",
+			"-collapse",
+			".collapse",
+			"collapse",
+			"toggle",
+			"brand-primary",
+			"primary",
+			"debugger",
+			"this.elements.navbar",
+			"$kajsa-purple",
+			"navbar",
+			"saintjoseph",
+			"joseph",
+			"injected",
+			"priam_top_banner",
+			"banner",
+			"wajam",
+			"banner",
+			"development		",
+			"development",
+			"example.com"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "quiz.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"mainjs",
+				"theme\\assets\\scripts\\main.js"
+			],
+			[
+				"front-page",
+				"theme\\front-page.php"
+			],
+			[
+				"header",
+				"theme\\templates\\header.php"
+			],
+			[
+				"navwal",
+				"theme\\lib\\wp_bootstrap_navwalker.php"
+			],
+			[
+				"navbarscss",
+				"bootstrap\\stylesheets\\bootstrap\\_navbar.scss"
+			],
+			[
+				"global",
+				"theme\\assets\\styles\\common\\_global.scss"
+			],
+			[
+				"footer",
+				"theme\\templates\\footer.php"
+			],
+			[
+				"_nav.scs",
+				"bootstrap\\stylesheets\\bootstrap\\_navs.scss"
+			],
+			[
+				"script/lib",
+				"theme\\assets\\scripts\\lib\\jquery.easing.min.js"
+			],
+			[
+				"testjs",
+				"theme\\assets\\scripts\\lib\\test.js"
+			],
+			[
+				"scripts/lib",
+				"theme\\assets\\scripts\\lib\\scrolling-nav.js"
+			],
+			[
+				"manife",
+				"theme\\assets\\manifest.json"
+			],
+			[
+				"front-",
+				"theme\\front-page.php"
+			],
+			[
+				"foot",
+				"theme\\templates\\footer.php"
+			],
+			[
+				"varia",
+				"theme\\assets\\styles\\common\\_variables.scss"
+			],
+			[
+				"variables",
+				"bootstrap\\stylesheets\\bootstrap\\_variables.scss"
+			],
+			[
+				"front",
+				"theme\\front-page.php"
+			],
+			[
+				"head",
+				"theme\\templates\\head.php"
+			],
+			[
+				"globalcss",
+				"theme\\assets\\styles\\common\\_global.scss"
+			],
+			[
+				"base.php",
+				"theme\\base.php"
+			],
+			[
+				"gulpfile",
+				"theme\\gulpfile.js"
+			],
+			[
+				"header.php",
+				"templates\\header.php"
+			],
+			[
+				"glo",
+				"assets\\styles\\common\\_global.scss"
+			],
+			[
+				"contentpage",
+				"templates\\content-page.php"
+			],
+			[
+				"templatepage",
+				"templates\\content-page.php"
+			],
+			[
+				"globalscss",
+				"theme\\assets\\styles\\common\\_global.scss"
+			],
+			[
+				"themes/foundationpress/assets/scss/global/_settings.scss",
+				"wordpress-default\\wp-content\\themes\\FoundationPress\\assets\\scss\\global\\_settings.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 303.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
