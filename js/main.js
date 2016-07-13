@@ -59,8 +59,6 @@ ongehoordQuiz.prototype = {
 
 	init: function() {
 
-		this.show();
-
 		this.loadCurrentQuestion();
 	},
 
@@ -72,6 +70,8 @@ ongehoordQuiz.prototype = {
 	},
 
 	loadCurrentQuestion: function() {
+
+		this.show();
 
 		this.elements.question.html(this.getCurrentQuestion().question);
 
@@ -125,20 +125,61 @@ ongehoordQuiz.prototype = {
 		$('#quiz-feedback h3').html(this.getCurrentQuestion().feedback);
 
 		var $video = $('<video id="quiz-feedback-video" '
-						+'class="video-js vjs-default-skin" '
-						+'controls preload="auto" '
-						+'width="640" '
-						+'height="264" '
-						+'poster="http://video-js.zencoder.com/oceans-clip.png" '
-						+'data-setup=\'{"example_option":true}\'>'
-						+' <source src="movies/'+ this.currentQuestion +'.webm" type="video/webm" />'
-						+'</video>')
+						+ 'class="video-js vjs-default-skin" '
+						+ 'controls preload="auto" '
+						+ 'width="640" '
+						+ 'height="264" '
+						+ 'poster="http://video-js.zencoder.com/oceans-clip.png" '
+						+ 'data-setup=\'{"example_option":true}\'>'
+						+ ' <source src="movies/'+ this.currentQuestion +'.webm" type="video/webm" />'
+						+ '</video>')
 			.appendTo('#quiz-feedback-video-container')
 		;
 
 		videojs("quiz-feedback-video", {}, function(){
 			this.play();
 		});
+
+		this.addNextButton();
+		
+		$('#quiz-feedback').remove();
+
+	},
+
+	addNextButton: function() {
+
+		var last = (this.currentQuestion + 1) == this.questions.length;
+
+		$('#quiz-feedback .button.next').remove();
+
+		var $buttonNext = $('<a href="#" class="button next">'
+							+ last ? 'Finish' : 'Next'
+							+ '</a>')
+			.appendTo('#quiz-feedback');
+
+		$buttonNext.click(function(event) {
+
+			event.preventDefault();
+
+			if (last) {
+
+				this.last();
+			} else {
+				this.next();
+			}
+		}.bind(this));
+	},
+
+	last: function() {
+
+		console.log('last');
+	},
+
+	next: function() {
+
+		this.currentQuestion++;
+
+		this.loadCurrentQuestion();
 
 	}
 }
