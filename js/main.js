@@ -1,4 +1,64 @@
-function ongehoordQuiz() {
+function Application() {
+
+	this.init();
+}
+
+Application.prototype = {
+
+	buttonColors: [
+		'green',
+		'red',
+		'yellow'
+	],
+
+	init: function() {
+
+		$('#welcome').show();
+
+		$('#quiz-start-button').bind('click', function(event) {
+
+			event.preventDefault();
+
+			var quiz = new ongehoordQuiz();
+		}.bind(this));
+
+		this.bindEvents();
+	},
+
+	bindEvents: function() {
+
+		$(document).keyup(function(event) {
+			
+
+			console.log(event.which);
+
+			switch (event.which) {
+				case 13:
+					//enter
+				break;
+				case 49:
+					//enter
+				break;
+				case 50:
+					//enter
+				break;
+				case 51:
+					//enter
+				break;
+			}
+		});
+		// this.triggerButton('green');
+	},
+
+	triggerButton: function(color) {
+
+		$('.button.'+ color +':visible').trigger('click');
+	}
+}
+
+function ongehoordQuiz(application) {
+
+	this.parent = application;
 	this.init();
 }
 
@@ -124,13 +184,15 @@ ongehoordQuiz.prototype = {
 		$('#quiz-feedback h1').html(right ? 'Right!' : 'Wrong!');
 		$('#quiz-feedback h3').html(this.getCurrentQuestion().feedback);
 
+		$('#quiz-feedback-video').remove();
+
 		var $video = $('<video id="quiz-feedback-video" '
 						+ 'class="video-js vjs-default-skin" '
 						+ 'controls preload="auto" '
 						+ 'width="640" '
 						+ 'height="264" '
-						+ 'poster="http://video-js.zencoder.com/oceans-clip.png" '
-						+ 'data-setup=\'{"example_option":true}\'>'
+				
+						+ '>'
 						+ ' <source src="movies/'+ this.currentQuestion +'.webm" type="video/webm" />'
 						+ '</video>')
 			.appendTo('#quiz-feedback-video-container')
@@ -141,8 +203,6 @@ ongehoordQuiz.prototype = {
 		});
 
 		this.addNextButton();
-		
-		$('#quiz-feedback').remove();
 
 	},
 
@@ -153,7 +213,7 @@ ongehoordQuiz.prototype = {
 		$('#quiz-feedback .button.next').remove();
 
 		var $buttonNext = $('<a href="#" class="button next">'
-							+ last ? 'Finish' : 'Next'
+							+ (last ? 'Finish' : 'Next')
 							+ '</a>')
 			.appendTo('#quiz-feedback');
 
@@ -187,13 +247,7 @@ ongehoordQuiz.prototype = {
 
 $(function() {
 
-	$('#welcome').show();
 
-	$('#quiz-start-button').bind('click', function(event) {
-	
-		event.preventDefault();
-
-		var quiz = new ongehoordQuiz();
-	})
+	application = new Application();
 
 });
