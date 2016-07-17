@@ -1,4 +1,64 @@
-function ongehoordQuiz() {
+function Application() {
+
+	this.init();
+}
+
+Application.prototype = {
+
+	buttonColors: [
+		'green',
+		'red',
+		'yellow'
+	],
+
+	init: function() {
+
+		$('#welcome').show();
+
+		$('#quiz-start-button').bind('click', function(event) {
+
+			event.preventDefault();
+
+			var quiz = new ongehoordQuiz();
+		}.bind(this));
+
+		this.bindEvents();
+	},
+
+	bindEvents: function() {
+
+		$(document).keyup(function(event) {
+			
+
+			console.log(event.which);
+
+			switch (event.which) {
+				case 13:
+					//enter
+				break;
+				case 49:
+					//enter
+				break;
+				case 50:
+					//enter
+				break;
+				case 51:
+					//enter
+				break;
+			}
+		});
+		// this.triggerButton('green');
+	},
+
+	triggerButton: function(color) {
+
+		$('.button.'+ color +':visible').trigger('click');
+	}
+}
+
+function ongehoordQuiz(application) {
+
+	this.parent = application;
 	this.init();
 }
 
@@ -59,8 +119,6 @@ ongehoordQuiz.prototype = {
 
 	init: function() {
 
-		this.show();
-
 		this.loadCurrentQuestion();
 	},
 
@@ -72,6 +130,8 @@ ongehoordQuiz.prototype = {
 	},
 
 	loadCurrentQuestion: function() {
+
+		this.show();
 
 		this.elements.question.html(this.getCurrentQuestion().question);
 
@@ -124,15 +184,17 @@ ongehoordQuiz.prototype = {
 		$('#quiz-feedback h1').html(right ? 'Right!' : 'Wrong!');
 		$('#quiz-feedback h3').html(this.getCurrentQuestion().feedback);
 
+		$('#quiz-feedback-video').remove();
+
 		var $video = $('<video id="quiz-feedback-video" '
-						+'class="video-js vjs-default-skin" '
-						+'controls preload="auto" '
-						+'width="640" '
-						+'height="264" '
-						+'poster="http://video-js.zencoder.com/oceans-clip.png" '
-						+'data-setup=\'{"example_option":true}\'>'
-						+' <source src="movies/'+ this.currentQuestion +'.webm" type="video/webm" />'
-						+'</video>')
+						+ 'class="video-js vjs-default-skin" '
+						+ 'controls preload="auto" '
+						+ 'width="640" '
+						+ 'height="264" '
+				
+						+ '>'
+						+ ' <source src="movies/'+ this.currentQuestion +'.webm" type="video/webm" />'
+						+ '</video>')
 			.appendTo('#quiz-feedback-video-container')
 		;
 
@@ -140,19 +202,52 @@ ongehoordQuiz.prototype = {
 			this.play();
 		});
 
+		this.addNextButton();
+
+	},
+
+	addNextButton: function() {
+
+		var last = (this.currentQuestion + 1) == this.questions.length;
+
+		$('#quiz-feedback .button.next').remove();
+
+		var $buttonNext = $('<a href="#" class="button next">'
+							+ (last ? 'Finish' : 'Next')
+							+ '</a>')
+			.appendTo('#quiz-feedback');
+
+		$buttonNext.click(function(event) {
+
+			event.preventDefault();
+
+			if (last) {
+
+				this.last();
+			} else {
+				this.next();
+			}
+		}.bind(this));
+	},
+
+	last: function() {
+
+		console.log('last');
+	},
+
+	next: function() {
+
+		this.currentQuestion++;
+
+		this.loadCurrentQuestion();
+
 	}
 }
 
 
 $(function() {
 
-	$('#welcome').show();
 
-	$('#quiz-start-button').bind('click', function(event) {
-	
-		event.preventDefault();
-
-		var quiz = new ongehoordQuiz();
-	})
+	application = new Application();
 
 });
