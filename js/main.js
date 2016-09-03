@@ -64,48 +64,7 @@ function ongehoordQuiz(application) {
 
 ongehoordQuiz.prototype = {
 		
-	questions: [
-		{
-			'question': 'Wat doet dit varken?',
-			'answers': [
-				'niks',
-				'heel veel',
-				'een heleboel'
-			],
-			'correct': 1,
-			'feedback': 'Omdat daarom!'
-		},
-		{
-			'question': 'Wat doet dit varken? 2',
-			'answers': [
-				'niks',
-				'heel veel',
-				'een heleboel'
-			],
-			'correct': 1,
-			'feedback': 'Omdat daarom!'
-		},
-		{
-			'question': 'Wat doet dit varken? 3',
-			'answers': [
-				'niks',
-				'heel veel',
-				'een heleboel'
-			],
-			'correct': 1,
-			'feedback': 'Omdat daarom!'
-		},
-		{
-			'question': 'Wat doet dit varken? 4',
-			'answers': [
-				'niks',
-				'heel veel',
-				'een heleboel'
-			],
-			'correct': 1,
-			'feedback': 'Omdat daarom!'
-		}
-	],
+	questions: [],
 
 	elements: {
 		'quiz': $('#quiz'),
@@ -119,7 +78,19 @@ ongehoordQuiz.prototype = {
 
 	init: function() {
 
-		this.loadCurrentQuestion();
+		this.getQuestions();
+
+		// this.loadCurrentQuestion();
+	},
+
+	getQuestions: function(callback) {
+
+		$.ajax('questions.json', { datatype: 'json' }, function(questions) {
+
+			this.questions = questions;
+
+			this.loadCurrentQuestion();
+		}.bind(this))
 	},
 
 	show: function() {
