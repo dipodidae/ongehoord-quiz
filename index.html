@@ -9,11 +9,10 @@
 
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		<!-- Place favicon.ico in the root directory -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.0/css/bulma.css">
-		<link href="http://vjs.zencdn.net/5.10.4/video-js.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="bower_components/video.js/dist/video-js.min.css">
+		<link rel="stylesheet" href="bower_components/bulma/css/bulma.css">
 		<link rel="stylesheet" href="css/main.css">
-		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script data-main="js/app" src="bower_components/requirejs/require.js"></script>
 	</head>
 	<body>
 		<section class="hero is-fullheight is-primary is-bold">
@@ -35,9 +34,5 @@
 				</div>
 			</div>
 		</section>
-		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-		<script src="http://vjs.zencdn.net/5.10.4/video.js"></script>
-		<script src="js/main.js"></script>
 	</body>
 </html>
