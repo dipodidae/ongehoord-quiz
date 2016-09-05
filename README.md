@@ -1,2 +1,11 @@
 # ongehoord-quiz
-How to install: npm install http-server, then run by running http-server . and going to localhost:8080
+## How to install
+### 1. clone repository
+~~~bash
+$ git clone https://github.com/dipodidae/ongehoord-quiz.git
+~~~
+### 2. install dependencies with bower
+~~~bash
+$ cd ongehoord-quiz
+$ bower install
+~~~
