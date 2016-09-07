@@ -4,44 +4,44 @@ define(function() {
 		{
 			"question": "Wat doet dit varken?",
 			"answers": [
-				"niks",
-				"heel veel",
-				"een heleboel"
+				{"key": "a", "answer": "niks"},
+				{"key": "b", "answer": "heel veel"},
+				{"key": "c", "answer": "een heleboel"},
 			],
-			"correct": 1,
+			"correct": "a",
 			"feedback": "Omdat daarom!"
 		},
 
 		{
 			"question": "Wat doet dit varken? 2",
 			"answers": [
-				"niks",
-				"heel veel",
-				"een heleboel"
+				{"key": "a", "answer": "niks"},
+				{"key": "b", "answer": "heel veel"},
+				{"key": "c", "answer": "een heleboel"},
 			],
-			"correct": 1,
+			"correct": "a",
 			"feedback": "Omdat daarom!"
 		},
 
 		{
 			"question": "Wat doet dit varken? 3",
 			"answers": [
-				"niks",
-				"heel veel",
-				"een heleboel"
+				{"key": "a", "answer": "niks"},
+				{"key": "b", "answer": "heel veel"},
+				{"key": "c", "answer": "een heleboel"},
 			],
-			"correct": 1,
+			"correct": "a",
 			"feedback": "Omdat daarom!"
 		},
 		
 		{
 			"question": "Wat doet dit varken? 4",
 			"answers": [
-				"niks",
-				"heel veel",
-				"een heleboel"
+				{"key": "a", "answer": "niks"},
+				{"key": "b", "answer": "heel veel"},
+				{"key": "c", "answer": "een heleboel"},
 			],
-			"correct": 1,
+			"correct": "a",
 			"feedback": "Omdat daarom!"
 		}
 	];

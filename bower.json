@@ -23,6 +23,9 @@
     "video.js": "latest",
     "jquery": "latest",
     "bulma": "latest",
-    "requirejs": "latest"
+    "requirejs": "latest",
+    "requirejs-text": "latest",
+    "handlebars": "latest",
+    "rsvp.js": "rsvp#latest"
   }
 }

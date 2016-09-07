@@ -1,172 +1,110 @@
-define(['lib/questions', 'bower/video.js/dist/video.min'], function(Questions, Videojs) {
+/**
+ * Application
+ */
+define(['lib/page', 'quiz'], function(Page, Quiz) {
 
-	function Quiz(application) {
+	function Application() {
 
-		this.init();
+		new Page('index').then(this.init.bind(this));
 	}
 
-	Quiz.prototype = {
-			
-		questions: [],
+	Application.prototype = {
 
-		elements: {
-			'quiz': $('#quiz'),
-			'question': $('#quiz-question'),
-			'answers': $('#quiz-answers')
+		/**
+		 * Supported button colors and corresponding event codes
+		 * @type {Array}
+		 */
+		physicalButtons: [
+			{
+				'color': 'green',
+				'eventcode': 49
+			},
+			{
+				'color': 'yellow',
+				'eventcode': 50
+			},
+			{
+				'color': 'purple',
+				'eventcode': 49
+			},
+		],
+
+		/**
+		 * Initializes the Application object
+		 * 
+		 * @param  {Page}		Page object
+		 * @return {undefined}
+		 */
+		init: function(Page) {
+
+			this.page = Page;
+
+			this.bindEvents();
 		},
 
-		status: {
-			unanswered: 0,
-			right: 0,
-			wrong: 0,
+		/**
+		 * Binds the Application events
+		 * 
+		 * @return {undefined}
+		 */
+		bindEvents: function() {
+
+			$(document).keyup(this.findButtonState.bind(this));
 		},
 
-		currentQuestion: 0,
+		/**
+		 * Runs when a key is pressed
+		 * Checks if the key is in the physical key list
+		 * 
+		 * @param  {jQuery.event}
+		 * @return {undefined}
+		 */
+		findButtonState: function(event) {
 
-		score: 0,
+			console.log('button state', event.which);
 
-		init: function() {
+			$.each(this.physicalButtons, function(key, buttonData) {
 
-			this.setQuestions();
+				if (event.which === buttonData.eventcode) {
+					this.triggerButton(buttonData.color);
 
-			this.loadCurrentQuestion();
-		},
-
-		setQuestions: function(questions) {
-
-			this.status.unanswered = Questions.length;
-		},
-
-		show: function() {
-
-			$('.element-main').hide();
-
-			this.elements.quiz.show();
-		},
-
-		loadCurrentQuestion: function() {
-
-			this.show();
-
-			this.elements.question.html(this.getCurrentQuestion().question);
-
-			this.elements.answers.html('');
-
-			$.each(this.getCurrentQuestion().answers, function(key, answer) {
-
-				var $answer = $('<li>'
-									+'<a class="button">'
-									+'<span class="icon">'
-									+'<i class="fa fa-github"></i>'
-									+'</span>'
-									+'<span>'+ answer +'</span>'
-									+'</a>'
-									+'<li>')
-								.appendTo(this.elements.answers);
-
-				var $button = $answer.find('.button');
-
-				$button.bind('click', function(event) {
-
-					event.preventDefault();
-
-					var right = (key + 1) == this.getCurrentQuestion().correct;
-
-
-					this.updateStatus(right);
-
-					this.loadFeedback(right);
-
-				}.bind(this));
-
-			}.bind(this));
-		},
-
-		updateStatus: function(right) {
-
-			this.status.unanswered--;
-			this.status[right ? 'right' : 'wrong']++;
-
-		},
-
-		getCurrentQuestion: function() {
-
-			return Questions[this.currentQuestion];
-		},
-
-		loadFeedback: function(right) {
-
-			
-			$('.element-main').hide();
-			$('#quiz-feedback').show();
-
-			$('#quiz-feedback')
-				.toggleClass('answer-right', right)
-				.toggleClass('answer-wrong', !right)
-			;
-
-			$('#quiz-feedback h1').html(right ? 'Right!' : 'Wrong!');
-			$('#quiz-feedback h3').html(this.getCurrentQuestion().feedback);
-
-			$('#quiz-feedback-video').remove();
-
-			var $video = $('<video id="quiz-feedback-video" '
-							+ 'class="video-js vjs-default-skin" '
-							+ 'controls preload="auto" '
-							+ 'width="640" '
-							+ 'height="264" '
-					
-							+ '>'
-							+ ' <source src="movies/'+ this.currentQuestion +'.webm" type="video/webm" />'
-							+ '</video>')
-				.appendTo('#quiz-feedback-video-container')
-			;
-
-			Videojs("quiz-feedback-video", {}, function(){
-				this.play();
-			});
-
-			this.addNextButton();
-
-		},
-
-		addNextButton: function() {
-
-			var last = (this.currentQuestion + 1) == Questions.length;
-
-			$('#quiz-feedback .button.next').remove();
-
-			var $buttonNext = $('<a href="#" class="button next">'
-								+ (last ? 'Finish' : 'Next')
-								+ '</a>')
-				.appendTo('#quiz-feedback');
-
-			$buttonNext.click(function(event) {
-
-				event.preventDefault();
-
-				if (last) {
-
-					this.last();
-				} else {
-					this.next();
+					/**
+					 * Start the quiz if the user is in this screen only
+					 * and presses the green button
+					 */
+					if (this.page.$el.is(':visible') && buttonData.color == 'green') {
+						this.startQuiz();
+					}
 				}
+			
 			}.bind(this));
 		},
 
-		last: function() {
+		/**
+		 * Triggers a button with the corresponding color class if the
+		 * physical button is triggered
+		 *
+		 * @param  {string}		button color
+		 * @return {undefined}
+		 */
+		triggerButton: function(color) {
 
-			console.log('last');
+			$('.button.'+ color +':visible').trigger('click');
 		},
 
-		next: function() {
+		/**
+		 * Starts the quiz
+		 *
+		 * @return {undefined}
+		 */
+		startQuiz: function() {
 
-			this.currentQuestion++;
+			console.log('start quiz!');
 
-			this.loadCurrentQuestion();
-
+			var quiz = new Quiz();
 		}
 	}
 
-	return Quiz;
+	return Application;
+
 });

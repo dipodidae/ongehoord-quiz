@@ -1,8 +1,8 @@
-define(['lib/questions'], function(Questions) {
+define(['lib/questions', 'lib/templater', 'bower/video.js/dist/video'], function(Questions, Templater, videojs) {
 
 	function Quiz(application) {
 
-		this.init();
+		new Page('quiz').then(this.init.bind(this));
 	}
 
 	Quiz.prototype = {
@@ -25,11 +25,13 @@ define(['lib/questions'], function(Questions) {
 
 		score: 0,
 
-		init: function() {
+		init: function(Page) {
+
+			this.page = Page;
 
 			this.setQuestions();
 
-			this.loadCurrentQuestion();
+			this.loadQuestion(this.getCurrentQuestion());
 		},
 
 		setQuestions: function(questions) {
@@ -44,42 +46,21 @@ define(['lib/questions'], function(Questions) {
 			this.elements.quiz.show();
 		},
 
-		loadCurrentQuestion: function() {
+		loadQuestion: function(questionData) {
 
-			this.show();
+			return new Templater('elements/question', questionData)
+				.then(function($element) {
 
-			this.elements.question.html(this.getCurrentQuestion().question);
-
-			this.elements.answers.html('');
-
-			$.each(this.getCurrentQuestion().answers, function(key, answer) {
-
-				var $answer = $('<li>'
-									+'<a class="button">'
-									+'<span class="icon">'
-									+'<i class="fa fa-github"></i>'
-									+'</span>'
-									+'<span>'+ answer +'</span>'
-									+'</a>'
-									+'<li>')
-								.appendTo(this.elements.answers);
-
-				var $button = $answer.find('.button');
-
-				$button.bind('click', function(event) {
-
-					event.preventDefault();
-
-					var right = (key + 1) == this.getCurrentQuestion().correct;
-
-
-					this.updateStatus(right);
-
-					this.loadFeedback(right);
-
+					$element
+						.appendTo(this.page.$el)
+						.find('button')
+						.bind('click', this.answerClick.bind(this))
 				}.bind(this));
+		},
 
-			}.bind(this));
+		answerClick: function(event) {
+
+			debugger;
 		},
 
 		updateStatus: function(right) {
@@ -96,61 +77,26 @@ define(['lib/questions'], function(Questions) {
 
 		loadFeedback: function(right) {
 
-			
-			$('.element-main').hide();
-			$('#quiz-feedback').show();
+			return new Templater('elements/feedback', {
+				'text': 'Test',
+				'title': 'Test',
+				'video': '/video/01.webm'
+			}).then(function($element) {
 
-			$('#quiz-feedback')
-				.toggleClass('answer-right', right)
-				.toggleClass('answer-wrong', !right)
-			;
+				$element
+					.appendTo(this.page.$el)
+					.find('button')
+					.bind('click', function(event) {
 
-			$('#quiz-feedback h1').html(right ? 'Right!' : 'Wrong!');
-			$('#quiz-feedback h3').html(this.getCurrentQuestion().feedback);
+						var last = (this.currentQuestion + 1) == Questions.length;
 
-			$('#quiz-feedback-video').remove();
+						if (last) {
+							this.last();
+						} else {
+							this.next();
+						}
 
-			var $video = $('<video id="quiz-feedback-video" '
-							+ 'class="video-js vjs-default-skin" '
-							+ 'controls preload="auto" '
-							+ 'width="640" '
-							+ 'height="264" '
-					
-							+ '>'
-							+ ' <source src="movies/'+ this.currentQuestion +'.webm" type="video/webm" />'
-							+ '</video>')
-				.appendTo('#quiz-feedback-video-container')
-			;
-
-			videojs("quiz-feedback-video", {}, function(){
-				this.play();
-			});
-
-			this.addNextButton();
-
-		},
-
-		addNextButton: function() {
-
-			var last = (this.currentQuestion + 1) == Questions.length;
-
-			$('#quiz-feedback .button.next').remove();
-
-			var $buttonNext = $('<a href="#" class="button next">'
-								+ (last ? 'Finish' : 'Next')
-								+ '</a>')
-				.appendTo('#quiz-feedback');
-
-			$buttonNext.click(function(event) {
-
-				event.preventDefault();
-
-				if (last) {
-
-					this.last();
-				} else {
-					this.next();
-				}
+					}.bind(this));
 			}.bind(this));
 		},
 

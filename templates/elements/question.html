@@ -1,0 +1,10 @@
+<div class="container has-text-centered element-main">
+	<h3 class="title is-2" id='quiz-question'>{{title}}</h3>
+	<ul id='quiz-answers'>
+		{{#each answers}}
+			<li>
+				<button data-key="{{key}}">{{answer}}</button>
+			</li>
+		{{/each}} 
+	</ul>
+</div>
