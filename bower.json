@@ -2,7 +2,7 @@
   "name": "Ongehoord Quiz",
   "homepage": "https://github.com/dipodidae/ongehoord-quiz",
   "authors": [
-    "= <senseosoft@gmail.com>"
+    "= <dpdd@squat.net>"
   ],
   "description": "Quiz that runs in the Ongehoord bus",
   "main": "js/app.js",
