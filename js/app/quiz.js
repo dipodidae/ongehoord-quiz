@@ -2,6 +2,8 @@ define(['lib/questions', 'lib/templater', 'bower/video.js/dist/video'], function
 
 	function Quiz(application) {
 
+		var Page = new require('lib/page');
+
 		new Page('quiz').then(this.init.bind(this));
 	}
 
