@@ -1,10 +1,13 @@
-<div class="container has-text-centered element-main">
-	<h3 class="title is-2" id='quiz-question'>{{title}}</h3>
-	<ul id='quiz-answers'>
-		{{#each answers}}
-			<li>
-				<button data-key="{{key}}">{{answer}}</button>
-			</li>
-		{{/each}} 
-	</ul>
-</div>
+<h3 class="title is-2" id='quiz-question'>{{title}}</h3>
+<h4 class="title is-2" id='quiz-question'>{{question}}</h4>
+<div class='quiz-question-image-container'><img src='dist/img/quiz/{{image}}'></div></div>
+<ul id='quiz-answers'>
+	{{#each answers}}
+		<li>
+			<button data-key="{{key}}" class='interactive {{color}}'>
+				<span class='button-color {{color}}'></span>
+				<span class='label'>{{answer}}</span>
+			</button>
+		</li>
+	{{/each}} 
+</ul>

@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"event",
+				"eventcode"
+			],
+			[
+				"psy",
+				"physicalButtons"
+			],
+			[
+				"button",
+				"buttonData"
+			],
+			[
+				"butt",
+				"buttonData"
+			],
+			[
+				"start",
+				"startQuiz"
+			],
+			[
+				"but",
+				"buttonColor"
+			],
+			[
+				"bu",
+				"buttonData"
+			],
+			[
 				"quiz",
 				"quiz-feedback-video"
 			],
@@ -28,43 +56,35 @@
 	"buffers":
 	[
 		{
-			"file": ".gitignore",
+			"file": "js/app/main.js",
 			"settings":
 			{
-				"buffer_size": 169,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "old/site.js",
-			"settings":
-			{
-				"buffer_size": 2904,
+				"buffer_size": 366,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "js/main.js",
+			"file": "js/app/application.js",
 			"settings":
 			{
-				"buffer_size": 3244,
+				"buffer_size": 2095,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/plugins.js",
-			"settings":
-			{
-				"buffer_size": 760,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1662,
-				"line_ending": "Unix"
+				"buffer_size": 699,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/lib/page.js",
+			"settings":
+			{
+				"buffer_size": 798,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -145,13 +165,18 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Tom/Desktop/quiz",
-		"/C/Users/Tom/Desktop/quiz/js",
-		"/C/Users/Tom/Desktop/quiz/js/vendor",
-		"/C/Users/Tom/Desktop/quiz/old"
+		"/C/Users/Tom/Desktop/ongehoord-quiz"
 	],
 	"file_history":
 	[
+		"/C/Users/Tom/Desktop/ongehoord-quiz/templates/pages/index.html",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/index.html",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/quiz.sublime-project",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/js/app.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/.gitignore",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/js/plugins.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/js/main.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/old/site.js",
 		"/C/Users/Tom/Desktop/quiz/old/index.html",
 		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/assets/styles/common/_variables.scss",
 		"/C/wamp64/www/bodypositivetraining.dev/web/app/themes/bodypositivetraining/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss",
@@ -250,6 +275,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"getButtonColorByEventCode",
+			"getButtonColor",
+			"findButtonState",
 			"$(",
 			"$",
 			"Application",
@@ -291,102 +319,16 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": ".gitignore",
+					"file": "js/app/main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								169,
-								169
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "old/site.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2904,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2035,
-								2035
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 810.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3244,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3010,
-								3010
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1539.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "js/plugins.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 760,
+						"buffer_size": 366,
 						"regions":
 						{
 						},
@@ -400,8 +342,7 @@
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -411,33 +352,90 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "index.html",
+					"buffer": 1,
+					"file": "js/app/application.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1662,
+						"buffer_size": 2095,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								471,
-								471
+								1634,
+								1634
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 900.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 699,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								157,
+								157
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/lib/page.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 798,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								210,
+								210
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -491,6 +489,30 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"index",
+				"templates\\pages\\index.html"
+			],
+			[
+				"index.htm",
+				"index.html"
+			],
+			[
+				"page.js",
+				"js\\lib\\page.js"
+			],
+			[
+				"application",
+				"js\\app\\application.js"
+			],
+			[
+				"main",
+				"js\\app\\main.js"
+			],
+			[
+				"app",
+				"js\\app.js"
+			],
 			[
 				"mainjs",
 				"theme\\assets\\scripts\\main.js"
