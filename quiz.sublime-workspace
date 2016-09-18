@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"remove",
+				"removeQuiz"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"key",
+				"keycache"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"get",
+				"getCurrentQuestion"
+			],
+			[
+				"filter",
+				"filtervalue"
+			],
+			[
+				"quest",
+				"questionData"
+			],
+			[
+				"backgro",
+				"background-image"
+			],
+			[
 				"event",
 				"eventcode"
 			],
@@ -55,38 +87,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "js/app/main.js",
-			"settings":
-			{
-				"buffer_size": 366,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/app/application.js",
-			"settings":
-			{
-				"buffer_size": 2095,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 699,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/lib/page.js",
-			"settings":
-			{
-				"buffer_size": 798,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -96,9 +96,17 @@
 	"command_palette":
 	{
 		"height": 344.0,
-		"last_filter": "tabs",
+		"last_filter": "indent",
 		"selected_items":
 		[
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"INDENT",
+				"Indentation: Reindent Lines"
+			],
 			[
 				"tabs",
 				"Indentation: Convert to Tabs"
@@ -165,15 +173,38 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Tom/Desktop/ongehoord-quiz"
+		"/C/Users/Tom/Desktop/ongehoord-quiz",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/css",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/app",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/lib",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/templates",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/templates/elements",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/templates/pages"
 	],
 	"file_history":
 	[
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/css/main.css",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/templates/elements/feedback.html",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/lib/page.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/lib/buttons.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/app/application.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/app/quiz.js",
 		"/C/Users/Tom/Desktop/ongehoord-quiz/templates/pages/index.html",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/templates/elements/question.html",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/templates/pages/quiz.html",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/lib/questions.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/.gitignore",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/app/main.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/dist/js/app.js",
 		"/C/Users/Tom/Desktop/ongehoord-quiz/index.html",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/bower.json",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/js/app/application.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/js/app/main.js",
+		"/C/Users/Tom/Desktop/ongehoord-quiz/js/lib/page.js",
 		"/C/Users/Tom/Desktop/ongehoord-quiz/quiz.sublime-project",
 		"/C/Users/Tom/Desktop/ongehoord-quiz/js/app.js",
-		"/C/Users/Tom/Desktop/ongehoord-quiz/.gitignore",
 		"/C/Users/Tom/Desktop/ongehoord-quiz/js/plugins.js",
 		"/C/Users/Tom/Desktop/ongehoord-quiz/js/main.js",
 		"/C/Users/Tom/Desktop/ongehoord-quiz/old/site.js",
@@ -258,7 +289,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -275,6 +306,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"right",
+			"re",
+			"find.pop",
+			"eventcode",
+			"/**\n		 * Compares the pressed button with the set button colors\n		 * If the button is in the set, return the color\n		 *\n		 * @param  {Int}			eventcode\n		 * @return {false|string}	the Buttoncolor\n		 */\n		getButtonColorByEventcode: function(eventcode) {\n\n			var find = this.physicalButtons.filter(function(buttonData) {\n			\n				return buttonData.eventcode == eventcode;\n			});\n\n			return find.length ? find.pop() : false;\n		},",
+			"getQuizElement",
+			"./fonts/hypatia/HYPATIASANSPRO",
+			"hypatie",
+			"}\n",
 			"getButtonColorByEventCode",
 			"getButtonColor",
 			"findButtonState",
@@ -319,125 +359,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "js/app/main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 366,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/app/application.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2095,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1634,
-								1634
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 900.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 699,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								157,
-								157
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "js/lib/page.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 798,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								210,
-								210
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -490,20 +413,44 @@
 		"selected_items":
 		[
 			[
-				"index",
-				"templates\\pages\\index.html"
+				"page",
+				"dist\\js\\lib\\page.js"
 			],
 			[
-				"index.htm",
-				"index.html"
+				"gitignore",
+				".gitignore"
 			],
 			[
 				"page.js",
-				"js\\lib\\page.js"
+				"dist\\js\\lib\\page.js"
 			],
 			[
 				"application",
-				"js\\app\\application.js"
+				"dist\\js\\app\\application.js"
+			],
+			[
+				"quiz.js",
+				"dist\\js\\app\\quiz.js"
+			],
+			[
+				"questions",
+				"dist\\js\\lib\\questions.js"
+			],
+			[
+				"quizjs",
+				"dist\\js\\app\\quiz.js"
+			],
+			[
+				"index.htm",
+				"templates\\pages\\index.html"
+			],
+			[
+				"index.html",
+				"index.html"
+			],
+			[
+				"index",
+				"templates\\pages\\index.html"
 			],
 			[
 				"main",

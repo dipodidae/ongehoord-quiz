@@ -1,7 +1,7 @@
 /**
  * Application
  */
-define(['lib/page', 'quiz'], function(Page, Quiz) {
+define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 	function Application() {
 
@@ -9,28 +9,6 @@ define(['lib/page', 'quiz'], function(Page, Quiz) {
 	}
 
 	Application.prototype = {
-
-		/**
-		 * Supported button colors and corresponding event codes
-		 * @type {Array}
-		 */
-		physicalButtons: [
-			{
-				'color': 'green',
-				'quizAnswer': 'a',
-				'eventcode': 49
-			},
-			{
-				'color': 'yellow',
-				'quizAnswer': 'b',
-				'eventcode': 50
-			},
-			{
-				'color': 'purple',
-				'quizAnswer': 'c',
-				'eventcode': 51
-			}
-		],
 
 		keyCache: [],
 
@@ -41,6 +19,8 @@ define(['lib/page', 'quiz'], function(Page, Quiz) {
 		 * @return {undefined}
 		 */
 		init: function(Page) {
+
+			this.physicalButtons = Buttons;
 
 			this.page = Page;
 
@@ -56,6 +36,7 @@ define(['lib/page', 'quiz'], function(Page, Quiz) {
 
 			$(document).keyup(this.keyUp.bind(this));
 			$(document).keydown(this.keyDown.bind(this));
+			this.page.$el.bind('click', this.startQuiz.bind(this));
 		},
 
 		/**
@@ -78,20 +59,13 @@ define(['lib/page', 'quiz'], function(Page, Quiz) {
 				this.keyCache.splice(keyCacheIndex, 1);
 			}
 
-			if (!buttonData) {
+			if (!buttonData || this.keyPause) {
 				return;
 			}
 
-			if (this.disableFirstKeyUp) {
-				delete this.disableFirstKeyUp;
-				return;
-			}
+			this.triggerAnyElement();
 
-			this.triggerButton(buttonData.color);
-
-			if (this.page.isVisible() && buttonData.color == 'green') {
-				this.startQuiz();
-			}			
+			this.triggerButton(buttonData.color);		
 		},
 
 		keyDown: function() {
@@ -115,8 +89,25 @@ define(['lib/page', 'quiz'], function(Page, Quiz) {
 				this.quiz.page.remove();
 				delete this.quiz;
 				this.page.show();
-				this.disableFirstKeyUp = true;
+				
+				this.setKeyPause();
 			}
+		},
+
+		triggerAnyElement: function() {
+
+			$('.interactive.any:visible').trigger('click');
+		},
+
+		setKeyPause: function() {
+
+			this.keyPause = true;
+
+			setTimeout(function(){
+
+				this.keyPause = false;
+				delete this.keyPause;
+			}.bind(this), 3000);
 		},
 
 		/**

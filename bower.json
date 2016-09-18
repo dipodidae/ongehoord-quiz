@@ -26,6 +26,7 @@
     "requirejs": "latest",
     "requirejs-text": "latest",
     "handlebars": "latest",
-    "rsvp.js": "rsvp#latest"
+    "rsvp.js": "rsvp#latest",
+    "chartist": "latest,
   }
 }

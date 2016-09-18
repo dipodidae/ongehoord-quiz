@@ -9,6 +9,7 @@ requirejs.config({
 		"rsvp": "../../../bower_components/rsvp.js/rsvp.min",
 		"jquery": "../../../bower_components/jquery/dist/jquery.min",
 		"lib": "../lib",
+		"data": "../data",
 		"bower": "../../../bower_components",
 		"templates": "../../../templates"
 	}

@@ -1,4 +1,4 @@
-define(['lib/questions', 'lib/templater', 'bower/video.js/dist/video'], function(Questions, Templater, videojs) {
+define(['data/questions', 'lib/templater', 'bower/video.js/dist/video'], function(Questions, Templater, videojs) {
 
 	function Quiz(application) {
 
@@ -23,6 +23,7 @@ define(['lib/questions', 'lib/templater', 'bower/video.js/dist/video'], function
 			unanswered: 0,
 			right: 0,
 			wrong: 0,
+			total: 0,
 		},
 
 		currentQuestion: 0,
@@ -34,13 +35,33 @@ define(['lib/questions', 'lib/templater', 'bower/video.js/dist/video'], function
 			this.page = Page;
 
 			this.setQuestions();
-
+			
 			this.loadQuestion(this.getCurrentQuestion());
+
 		},
 
 		setQuestions: function(questions) {
 
+			this.matchButtons();
+
+			this.status.total = Questions.length;
 			this.status.unanswered = Questions.length;
+		},
+
+		matchButtons: function() {
+
+			$.each(Questions, function(key, questionData) {
+
+				$.each(questionData.answers, function(key, answer) {
+				
+					var button = this.application.physicalButtons.filter(function(buttonData) {
+				
+						return buttonData.quizAnswer == answer.key;
+					});
+
+					answer.color = (button.length ? button.pop().color : false);
+				}.bind(this));
+			}.bind(this));
 		},
 
 		show: function() {
@@ -53,16 +74,6 @@ define(['lib/questions', 'lib/templater', 'bower/video.js/dist/video'], function
 		loadQuestion: function(questionData) {
 
 			this.getQuizContainer().empty();
-
-			$.each(questionData.answers, function(key, answer) {
-				
-				var button = this.application.physicalButtons.filter(function(buttonData) {
-			
-					return buttonData.quizAnswer == answer.key;
-				});
-
-				answer.color = (button.length ? button.pop().color : false);
-			}.bind(this));
 
 			return new Templater('elements/question', questionData)
 				.then(function($element) {
@@ -121,23 +132,46 @@ define(['lib/questions', 'lib/templater', 'bower/video.js/dist/video'], function
 				text: currentQuestion.feedback
 			}).then(function($element) {
 
-				this.getQuizContainer().empty();
-				$element.appendTo(this.getQuizContainer());
-				var last = (this.currentQuestion + 1) == Questions.length;
+				this.getQuizContainer()
+					.html($element);
+
+				$element.bind('click', {}, this.nextPage.bind(this));
 			}.bind(this));
+		},
+
+		nextPage: function() {
+
+			var last = (this.currentQuestion + 1) == Questions.length;
+
+			return last
+					? this.last()
+					: this.next();
 		},
 
 		last: function() {
 
-			console.log('last');
+			return new Templater('elements/last', this.status)
+				.then(function($element) {
+
+					this.getQuizContainer()
+						.html($element);
+
+					$element.bind('click', {}, this.quit.bind(this));
+				}.bind(this));
+
 		},
 
 		next: function() {
 
 			this.currentQuestion++;
 
-			this.loadCurrentQuestion();
+			this.loadQuestion(this.getCurrentQuestion());
 
+		},
+
+		quit: function() {
+
+			console.log('quit');1
 		}
 	}
 
