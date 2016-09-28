@@ -1,0 +1,9 @@
+{
+	"entry": {
+		"main": [
+			"./scripts/main.js",
+			"./styles/main.less"
+		]
+	},
+	"cacheBusting": "[name]_[hash:8]"
+}

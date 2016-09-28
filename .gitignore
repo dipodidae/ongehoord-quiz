@@ -5,4 +5,5 @@ quiz.sublime-project
 /old/
 /bower_components/
 /node_modules/
+/dist/css/
 *.sublime-project

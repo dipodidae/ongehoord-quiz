@@ -1,0 +1,27 @@
+/**
+ * Index
+ */
+
+#application-main {
+	background:transparent;
+	background-image: url('../img/waves.png');
+	text-shadow:0 0 10px #000;
+	animation: animatedBackground 40s linear infinite;
+}
+
+	#index-background-video { 
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+	@keyframes animatedBackground {
+		from { background-position: 0 0; }
+		to { background-position: 100% 0; }
+	}

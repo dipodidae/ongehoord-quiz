@@ -1,0 +1,39 @@
+{
+  "name": "Ongehoord-Quiz",
+  "version": "1.0.0-alpha",
+  "description": "Quiz script",
+  "author": "Tom van Veen <dpdd@squat.net>",
+  "homepage": "https://ongehoord.info/",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dipodidae/ongehoord-quiz.git"
+  },
+  "licenses": [
+    {
+      "type": "Creative Commons",
+      "url": "https://creativecommons.org/"
+    }
+  ],
+  "scripts": {
+    "build": "webpack --progress --config assets/build/webpack.config.js",
+    "build:production": "npm run build -s -- -p",
+    "start": "npm run build -s -- --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint assets/scripts assets/build",
+    "test": "npm run lint -s"
+  },
+  "engines": {
+    "node": ">= 4.5"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-watch": "latest",
+    "less-plugin-autoprefix": "latest"
+  },
+  "dependencies": {
+    "jquery": "latest"
+  }
+}
