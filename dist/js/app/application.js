@@ -5,7 +5,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 	function Application() {
 
-		new Page('index').then(this.init.bind(this));
+		this.show();
 	}
 
 	Application.prototype = {
@@ -18,6 +18,12 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 		 * @param  {Page}		Page object
 		 * @return {undefined}
 		 */
+		
+		show: function() {
+
+			new Page('index').then(this.init.bind(this));
+		},
+
 		init: function(Page) {
 
 			this.physicalButtons = Buttons;
@@ -86,9 +92,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 			if (this.quiz && removeQuiz) {
 
-				this.quiz.page.remove();
-				delete this.quiz;
-				this.page.show();
+				this.removeQuiz();
 				
 				this.setKeyPause();
 			}
@@ -99,7 +103,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 			$('.interactive.any:visible').trigger('click');
 		},
 
-		setKeyPause: function() {
+		setKeyPause: function(howLong) {
 
 			this.keyPause = true;
 
@@ -107,7 +111,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 				this.keyPause = false;
 				delete this.keyPause;
-			}.bind(this), 3000);
+			}.bind(this), howLong || 3000);
 		},
 
 		/**
@@ -148,6 +152,8 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 		 */
 		triggerButton: function(color) {
 
+			this.setKeyPause(1000);
+
 			return $('.interactive.' + color + ':visible').trigger('click');
 		},
 
@@ -158,9 +164,13 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 		 */
 		startQuiz: function() {
 
-			console.log('start quiz!');
-
 			this.quiz = new Quiz(this);
+		},
+
+		removeQuiz: function() {
+			this.quiz.destroy();
+			delete this.quiz;
+			this.show();
 		}
 	}
 

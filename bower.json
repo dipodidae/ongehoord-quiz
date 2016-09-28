@@ -22,7 +22,7 @@
   "dependencies": {
     "video.js": "latest",
     "jquery": "latest",
-    "bulma": "latest",
+    "skeleton": "latest",
     "requirejs": "latest",
     "requirejs-text": "latest",
     "handlebars": "latest",

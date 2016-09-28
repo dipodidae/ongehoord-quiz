@@ -34,7 +34,7 @@ define(['rsvp', 'lib/templater'], function(RSVP, Templater) {
 
 		append: function() {
 
-			this.$el.appendTo('body');
+			$('#page-container').html(this.$el);
 
 			this.show();
 		},

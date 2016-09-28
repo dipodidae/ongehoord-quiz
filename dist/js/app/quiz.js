@@ -1,4 +1,10 @@
-define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/chartist/dist/chartist'], function(Questions, Templater, videojs) {
+define([
+	'data/questions',
+	'data/quizfeedback',
+	'lib/templater',
+	'bower/video.js/dist/video',
+	'bower/chartist/dist/chartist'
+], function(Questions, QuizFeedback, Templater, videojs) {
 
 	function Quiz(application) {
 
@@ -30,6 +36,12 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 
 		score: 0,
 
+		/**
+		 * Constructor
+		 *
+		 * @param  {[type]} Page [description]
+		 * @return {[type]}      [description]
+		 */
 		init: function(Page) {
 
 			this.page = Page;
@@ -42,18 +54,62 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 
 		},
 
+		/**
+		 * Initialize the chart display
+		 *
+		 * @return {[type]} [description]
+		 */
 		initChart: function() {
 
-			var data = this.getChartData();
+			var data = this.getChartData(),
+				options  = {
+					labelInterpolationFnc: function(value) {
+						return value[0]
+					},
+					// donut: true,
+					// donutWidth: 60,
+					// startAngle: 270,
+					// total: 200,
+				},
+				responsiveOptions = [
+					['screen and (min-width: 640px)', {
+						chartPadding: 30,
+						labelOffset: 100,
+						labelDirection: 'explode',
+						labelInterpolationFnc: function(value) {
+							return value;
+						}
+					}],
+					['screen and (min-width: 1024px)', {
+						labelOffset: 80,
+						chartPadding: 20
+					}]
+				];
 
-			this.chart = new Chartist.Pie('.ct-chart', data);
+			this.chart = new Chartist.Pie(
+				'#application-quiz-chart',
+				data,
+				options,
+				responsiveOptions
+			);
 		},
 
+		/**
+		 * Updates the chart display
+		 *
+		 * @return {[type]} [description]
+		 */
 		updateChart: function() {
 
 			this.chart.update(this.getChartData());
 		},
 
+		/**
+		 * Gets the chart data to be used
+		 * in the chart display
+		 *
+		 * @return {[type]} [description]
+		 */
 		getChartData: function() {
 
 			return {
@@ -62,6 +118,11 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 			};
 		},
 
+		/**
+		 * Sets the question data
+		 *
+		 * @param {[type]} questions [description]
+		 */
 		setQuestions: function(questions) {
 
 			this.matchButtons();
@@ -70,6 +131,12 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 			this.status.unanswered = Questions.length;
 		},
 
+		/**
+		 * Matches the pressed button against the
+		 * buttons from the physical buttonset
+		 *
+		 * @return {[type]} [description]
+		 */
 		matchButtons: function() {
 
 			$.each(Questions, function(key, questionData) {
@@ -86,6 +153,11 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 			}.bind(this));
 		},
 
+		/**
+		 * Shows the Quiz
+		 *
+		 * @return {[type]} [description]
+		 */
 		show: function() {
 
 			$('.element-main').hide();
@@ -93,38 +165,53 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 			this.elements.quiz.show();
 		},
 
+		/**
+		 * Loads a question from a given questionDataSet
+		 *
+		 * @param  {[type]} questionData [description]
+		 * @return {[type]}              [description]
+		 */
 		loadQuestion: function(questionData) {
 
 			this.getQuizContainer().empty();
 
 			return new Templater('elements/question', questionData)
-				.then(function($element) {
-
-					var $buttons;
-
-					$element.appendTo(this.getQuizContainer())
-					
-					$buttons = $element.find('button');
-
-					$buttons.each(function(key, button) {
-
-						var $button = $(button);
-
-						$button.bind(
-							'click',
-							{
-								'key': $button.data('key')
-							},
-							this.answerClick.bind(this)
-						);
-					}.bind(this));
-				}.bind(this));
+						.then(this.injectQuestion.bind(this));
 		},
 
+		injectQuestion: function($element) {
+
+			var $buttons;
+
+			$element.appendTo(this.getQuizContainer());
+
+			$buttons = $element.find('button');
+			
+			$buttons.each(function(key, button) {
+
+				var $button = $(button);
+
+				$button.bind('click', {
+					'key': $button.data('key')
+				}, this.answerClick.bind(this));
+			}.bind(this));
+		},
+
+		/**
+		 * Returns the current Quiz container DOM element
+		 *
+		 * @return {[type]} [description]
+		 */
 		getQuizContainer: function() {
 			return this.page.$el.find('#application-quiz-content');
 		},
 
+		/**
+		 * Button click callback
+		 *
+		 * @param  {[type]} event [description]
+		 * @return {[type]}       [description]
+		 */
 		answerClick: function(event) {
 
 			var currentQuestion = this.getCurrentQuestion(),
@@ -134,6 +221,12 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 			this.loadFeedback(right)
 		},
 
+		/**
+		 * Updates the Quiz status
+		 *
+		 * @param  {[type]} right [description]
+		 * @return {[type]}       [description]
+		 */
 		updateStatus: function(right) {
 
 			this.status.unanswered--;
@@ -142,27 +235,58 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 			this.updateChart();
 		},
 
+		/**
+		 * Returns the current question
+		 *
+		 * @return {[type]} [description]
+		 */
 		getCurrentQuestion: function() {
 
-			return Questions[this.currentQuestion];
+			var currentQuestion = Questions[this.currentQuestion];
+
+			return $.extend(currentQuestion, {
+				'questionNumber': this.currentQuestion
+			});
 		},
 
+		/**
+		 * Loads the feedback after a question has been
+		 * answered
+		 *
+		 * @param  {[type]} right [description]
+		 * @return {[type]}       [description]
+		 */
 		loadFeedback: function(right) {
 
 			var currentQuestion = this.getCurrentQuestion();
 
 			return new Templater('elements/feedback', {
-				title: right ? 'Goedzo' : 'Fout',
-				text: currentQuestion.feedback
-			}).then(function($element) {
-
-				this.getQuizContainer()
-					.html($element);
-
-				$element.bind('click', {}, this.nextPage.bind(this));
-			}.bind(this));
+				'title':					right ? 'Goedzo' : 'Fout',
+				'text':						currentQuestion.feedback,
+				'currentQuestionNumber':	currentQuestion.questionNumber,
+				'video':					this.getVideoUrl(),
+			}).then(this.injectNewQuestion.bind(this));
 		},
 
+		/**
+		 * [injectNewQuestion description]
+		 *
+		 * @param  {[type]} $element [description]
+		 * @return {[type]}          [description]
+		 */
+		injectNewQuestion: function($element) {
+
+			this.getQuizContainer().html($element);
+
+			$element.bind('click', {}, this.nextPage.bind(this));
+		},
+
+		/**
+		 * Decides what the next pages is
+		 * and goes to it
+		 *
+		 * @return {[type]} [description]
+		 */
 		nextPage: function() {
 
 			var last = (this.currentQuestion + 1) == Questions.length;
@@ -172,19 +296,47 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 					: this.next();
 		},
 
+		/**
+		 * Goes to the last page
+		 *
+		 * @return {[type]} [description]
+		 */
 		last: function() {
 
-			return new Templater('elements/last', this.status)
-				.then(function($element) {
+			var score = Math.round((this.status.right / Questions.length) * 100);
 
-					this.getQuizContainer()
-						.html($element);
+			return new Templater('elements/last', $.extend(this.status, {
+				'score': score,
+				'feedback': this.getQuizFeedback(score)
+			})).then(function($element) {
 
-					$element.bind('click', {}, this.quit.bind(this));
-				}.bind(this));
+				this.getQuizContainer()
+					.html($element);
+
+				$element.bind('click', {}, this.quit.bind(this));
+			}.bind(this));
 
 		},
 
+		getQuizFeedback: function(score) {
+
+			var feedback = 'default.feedback';
+
+			$.each(QuizFeedback, function(key, QuizFeedbackScore) {
+				
+				if (QuizFeedbackScore.withinPercentage <= score) {
+					feedback = QuizFeedbackScore.feedback;
+				}
+			});
+
+			return feedback;
+		},
+
+		/**
+		 * Goes to the next question
+		 *
+		 * @return {Function} [description]
+		 */
 		next: function() {
 
 			this.currentQuestion++;
@@ -193,11 +345,37 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/c
 
 		},
 
+		/**
+		 * Quits the Quiz
+		 *
+		 * @return {[type]} [description]
+		 */
 		quit: function() {
 
-			console.log('quit');1
-		}
-	}
+			this.application.removeQuiz();
+		},
+
+		/**
+		 * Returns the URL of the video
+		 *
+		 * @return {string} VideoURL
+		 */
+		getVideoUrl: function(videoName) {
+
+			var url = 'dist/movies/' + (videoName || this.currentQuestion) + '.webm';
+
+			return url;
+		},
+
+		destroy: function() {
+
+			//reset status ??
+			$.each(this.status, function(key, val) {
+
+				this.status[key] = 0;
+			}.bind(this));
+		},
+	};
 
 	return Quiz;
 });
