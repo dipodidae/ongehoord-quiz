@@ -1,4 +1,4 @@
-define(['data/questions', 'lib/templater', 'bower/video.js/dist/video'], function(Questions, Templater, videojs) {
+define(['data/questions', 'lib/templater', 'bower/video.js/dist/video', 'bower/chartist/dist/chartist'], function(Questions, Templater, videojs) {
 
 	function Quiz(application) {
 
@@ -38,6 +38,28 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video'], functio
 			
 			this.loadQuestion(this.getCurrentQuestion());
 
+			this.initChart();
+
+		},
+
+		initChart: function() {
+
+			var data = this.getChartData();
+
+			this.chart = new Chartist.Pie('.ct-chart', data);
+		},
+
+		updateChart: function() {
+
+			this.chart.update(this.getChartData());
+		},
+
+		getChartData: function() {
+
+			return {
+				labels: ['Nog niet beantwoord', 'Goeie antwoorden', 'Foute antwoorden'],
+				series: [this.status.unanswered, this.status.right, this.status.wrong]
+			};
 		},
 
 		setQuestions: function(questions) {
@@ -116,6 +138,8 @@ define(['data/questions', 'lib/templater', 'bower/video.js/dist/video'], functio
 
 			this.status.unanswered--;
 			this.status[right ? 'right' : 'wrong']++;
+
+			this.updateChart();
 		},
 
 		getCurrentQuestion: function() {
