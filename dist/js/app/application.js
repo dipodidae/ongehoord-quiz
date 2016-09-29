@@ -5,6 +5,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 	function Application() {
 
+		this.bindEvents();
 		this.show();
 	}
 
@@ -14,14 +15,14 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 		/**
 		 * Initializes the Application object
-		 * 
+		 *
 		 * @param  {Page}		Page object
 		 * @return {undefined}
 		 */
-		
+
 		show: function() {
 
-			new Page('index').then(this.init.bind(this));
+			new Page('index').then(this.init.bindPageEvents(this));
 		},
 
 		init: function(Page) {
@@ -35,20 +36,25 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 		/**
 		 * Binds the Application events
-		 * 
+		 *
+		 * @todo  move to main.js
 		 * @return {undefined}
 		 */
 		bindEvents: function() {
 
 			$(document).keyup(this.keyUp.bind(this));
 			$(document).keydown(this.keyDown.bind(this));
+		},
+
+		bindPageEvents: function() {
+
 			this.page.$el.bind('click', this.startQuiz.bind(this));
 		},
 
 		/**
 		 * Runs when a key is pressed
 		 * Checks if the key is in the physical key list
-		 * 
+		 *
 		 * @param  {jQuery.event}
 		 * @return {undefined}
 		 */
@@ -71,7 +77,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 			this.triggerAnyElement();
 
-			this.triggerButton(buttonData.color);		
+			this.triggerButton(buttonData.color);
 		},
 
 		keyDown: function() {
@@ -93,7 +99,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 			if (this.quiz && removeQuiz) {
 
 				this.removeQuiz();
-				
+
 				this.setKeyPause();
 			}
 		},
@@ -136,7 +142,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 		getButtonByFilter: function(filtername, filtervalue) {
 
 			var find = this.physicalButtons.filter(function(buttonData) {
-			
+
 				return buttonData[filtername] == filtervalue;
 			});
 
