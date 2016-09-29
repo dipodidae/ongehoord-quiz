@@ -2,8 +2,8 @@ define(function() {
 	
 	return [
 		{
-			"title": "Leker baden",
 			"image": "mudbath.jpg",
+			"title": "Lekker baden",
 			"question": "Waarom neemt dit varken een modderbad?",
 			"answers": [
 				{"key": "a", "answer": "Varkens houden van lekker vies doen"},

@@ -5,7 +5,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 	function Application() {
 
-		this.bindEvents();
+		this.initialize();
 		this.show();
 	}
 
@@ -22,14 +22,12 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 		show: function() {
 
-			new Page('index').then(this.init.bindPageEvents(this));
+			new Page('index').then(this.bindPageEvents.bind(this));
 		},
 
-		init: function(Page) {
+		initialize: function() {
 
 			this.physicalButtons = Buttons;
-
-			this.page = Page;
 
 			this.bindEvents();
 		},
@@ -46,7 +44,9 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 			$(document).keydown(this.keyDown.bind(this));
 		},
 
-		bindPageEvents: function() {
+		bindPageEvents: function(Page) {
+
+			this.page = Page;
 
 			this.page.$el.bind('click', this.startQuiz.bind(this));
 		},

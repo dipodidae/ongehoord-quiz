@@ -1,13 +1,22 @@
-<h3 class="title is-2" id='quiz-question'>{{title}}</h3>
-<h4 class="title is-2" id='quiz-question'>{{question}}</h4>
-<div class='quiz-question-image-container'><img src='dist/img/quiz/{{image}}'></div></div>
-<ul id='quiz-answers'>
-	{{#each answers}}
-		<li>
-			<button data-key="{{key}}" class='interactive {{color}}'>
-				<span class='button-color {{color}}'></span>
-				<span class='label'>{{answer}}</span>
-			</button>
-		</li>
-	{{/each}} 
-</ul>
+<div class='columns columns-2'>
+	<div id='quiz-question-image'
+		class='column'
+		style='background-image:url("dist/img/quiz/{{image}}")'>
+	</div>
+	<div class='column' id='quiz-question-container'>
+		<h1 id='quiz-title'>{{title}}</h1>
+		<div class='inner'>
+			<h2 id='quiz-question'>{{question}}</h2>
+			<ul id='quiz-answers'>
+				{{#each answers}}
+					<li class='button-container {{color}}'>
+						<span class='button-color {{color}}'></span>
+						<button data-key="{{key}}" class='question-button interactive {{color}}'>
+							<span class='label'>{{answer}}</span>
+						</button>
+					</li>
+				{{/each}} 
+			</ul>
+		</div>
+	</div>
+</div>

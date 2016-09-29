@@ -4,6 +4,7 @@ html, body {
 	margin:0;
 	padding:0;
 }
+* { box-sizing: border-box; }
 
 .page {
 	height:100%;
@@ -13,4 +14,48 @@ html, body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+/**
+ * Typography:
+ * Headers
+ *
+ * @param  {[type]} @num [description]
+ * @return {[type]}      [description]
+ */
+.generate-header(@num) {
+	@header-font-size: "font-size-h@{num}";
+	h@{num} { font-size: @@header-font-size; }
+}
+
+.generate-headers(@n, @i: 1) when (@i =< @n) {
+	.generate-header(@i);
+	.generate-headers(@n, (@i + 1));
+}
+
+.generate-headers(5);
+
+
+/**
+ * Columns
+ *
+ * @param  {[type]} @num [description]
+ * @return {[type]}      [description]
+ */
+.generate-column(@num) {
+	.columns.columns-@{num} .column { width: percentage(1 / @num); }
+}
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+	.generate-column(@i);
+	.generate-columns(@n, (@i + 1));
+}
+
+.generate-columns(8);
+
+.columns {
+
+	.column {
+		float:left;
+	}	
 }

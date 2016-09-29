@@ -4,7 +4,11 @@ define([
 	'lib/templater',
 	'bower/video.js/dist/video',
 	'bower/chartist/dist/chartist'
-], function(Questions, QuizFeedback, Templater, videojs) {
+], function(
+		Questions,
+		QuizFeedback,
+		Templater,
+		videojs) {
 
 	function Quiz(application) {
 
@@ -22,7 +26,8 @@ define([
 		elements: {
 			'quiz': $('#quiz'),
 			'question': $('#quiz-question'),
-			'answers': $('#quiz-answers')
+			'answers': $('#quiz-answers'),
+			'quizContent': false
 		},
 
 		status: {
@@ -183,7 +188,7 @@ define([
 
 			var $buttons;
 
-			$element.appendTo(this.getQuizContainer());
+			this.getQuizContainer()
 
 			$buttons = $element.find('button');
 			
@@ -203,7 +208,8 @@ define([
 		 * @return {[type]} [description]
 		 */
 		getQuizContainer: function() {
-			return this.page.$el.find('#application-quiz-content');
+
+			return $('#application-quiz-content');
 		},
 
 		/**
@@ -265,16 +271,16 @@ define([
 				'text':						currentQuestion.feedback,
 				'currentQuestionNumber':	currentQuestion.questionNumber,
 				'video':					this.getVideoUrl(),
-			}).then(this.injectNewQuestion.bind(this));
+			}).then(this.injectFeedback.bind(this));
 		},
 
 		/**
-		 * [injectNewQuestion description]
+		 * [injectFeedback description]
 		 *
 		 * @param  {[type]} $element [description]
 		 * @return {[type]}          [description]
 		 */
-		injectNewQuestion: function($element) {
+		injectFeedback: function($element) {
 
 			this.getQuizContainer().html($element);
 
