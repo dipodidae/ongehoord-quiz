@@ -6,4 +6,5 @@ quiz.sublime-project
 /bower_components/
 /node_modules/
 /dist/css/
-*.sublime-project
+*.sublime*
+*.log

@@ -31,7 +31,9 @@
     "grunt-contrib-less": "latest",
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-watch": "latest",
-    "less-plugin-autoprefix": "latest"
+    "less-plugin-autoprefix": "latest",
+    "less": "latest",
+    "less-plugin-glob'": "latest"
   },
   "dependencies": {
     "jquery": "latest"
