@@ -18,9 +18,7 @@ define(['rsvp', 'lib/templater'], function(RSVP, Templater) {
 
 					this.$el = $element;
 
-					this.$el.addClass('page');
-
-					this.append();
+					this.inject();
 
 					resolve(this);
 				}.bind(this));
@@ -32,18 +30,21 @@ define(['rsvp', 'lib/templater'], function(RSVP, Templater) {
 			return new Templater('pages/' + this.pagename, {});
 		},
 
-		append: function() {
+		inject: function() {
 
-			$('#page-container').html(this.$el);
+			var $container = $('#page-container');
+
+			$container.attr('class', '');
+			$container.addClass('page');
+			$container.addClass(this.pagename);
+
+			$container.html(this.$el);
 
 			this.show();
 		},
 
 		show: function() {
-
-			$('.page').hide();
-
-			this.$el.show();
+			//abundant since rewrite
 		},
 
 		remove: function() {
@@ -52,7 +53,7 @@ define(['rsvp', 'lib/templater'], function(RSVP, Templater) {
 		},
 
 		isVisible: function() {
-			
+
 			return this.$el.is(':visible');
 		}
 	}
