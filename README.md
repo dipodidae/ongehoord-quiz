@@ -1,5 +1,5 @@
 # ongehoord-quiz
-This is a pure html/javascript quiz that is built with jQuery, require, bulma, RSVP promises, chartist and videojs. Its dependencies are maintained with Bower.
+This is a pure html/javascript quiz that is built with jQuery, require, RSVP promises, chartist and videojs. Its dependencies are maintained with Bower.
 ## How to install
 ### 1. clone repository
 ~~~bash

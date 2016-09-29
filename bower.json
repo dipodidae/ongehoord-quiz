@@ -22,12 +22,10 @@
   "dependencies": {
     "video.js": "latest",
     "jquery": "latest",
-    "skeleton": "latest",
     "requirejs": "latest",
     "requirejs-text": "latest",
     "handlebars": "latest",
     "rsvp.js": "rsvp#latest",
-    "chartist": "latest",
-    "material-design-lite": "^1.2.1"
+    "chartist": "latest"
   }
 }
