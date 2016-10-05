@@ -43,7 +43,7 @@ define(['bower/handlebars/handlebars.min', 'rsvp'], function(Handlebars, RSVP) {
 					if (source) {
 						resolve(source);
 					} else {
-						reject();
+						reject(error);
 					}
 				});
 			});

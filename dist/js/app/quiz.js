@@ -1,18 +1,19 @@
 define([
 	'data/questions',
-	'data/quizfeedback',
-	'lib/templater',
 	'bower/video.js/dist/video',
-	'bower/chartist/dist/chartist'
+	'quiz/chart',
+	'quiz/question',
+	'quiz/score',
 ], function(
 		Questions,
-		QuizFeedback,
-		Templater,
-		videojs) {
+		videojs,
+		QuizChart,
+		QuizQuestion,
+		QuizScore) {
 
 	function Quiz(application) {
 
-		var Page = new require('lib/page');
+		var Page = require('lib/page');
 
 		this.application = application || {};
 
@@ -52,61 +53,13 @@ define([
 			this.page = Page;
 
 			this.setQuestions();
+
+			this.chart = new QuizChart(this.getChartData());
+
+			this.question = new QuizQuestion(this);
 			
 			this.loadQuestion(this.getCurrentQuestion());
 
-			this.initChart();
-
-		},
-
-		/**
-		 * Initialize the chart display
-		 *
-		 * @return {[type]} [description]
-		 */
-		initChart: function() {
-
-			var data = this.getChartData(),
-				options  = {
-					labelInterpolationFnc: function(value) {
-						return value[0]
-					},
-					// donut: true,
-					// donutWidth: 60,
-					// startAngle: 270,
-					// total: 200,
-				},
-				responsiveOptions = [
-					['screen and (min-width: 640px)', {
-						chartPadding: 30,
-						labelOffset: 100,
-						labelDirection: 'explode',
-						labelInterpolationFnc: function(value) {
-							return value;
-						}
-					}],
-					['screen and (min-width: 1024px)', {
-						labelOffset: 80,
-						chartPadding: 20
-					}]
-				];
-
-			this.chart = new Chartist.Pie(
-				'#application-quiz-chart',
-				data,
-				options,
-				responsiveOptions
-			);
-		},
-
-		/**
-		 * Updates the chart display
-		 *
-		 * @return {[type]} [description]
-		 */
-		updateChart: function() {
-
-			this.chart.update(this.getChartData());
 		},
 
 		/**
@@ -171,60 +124,13 @@ define([
 		},
 
 		/**
-		 * Loads a question from a given questionDataSet
-		 *
-		 * @param  {[type]} questionData [description]
-		 * @return {[type]}              [description]
-		 */
-		loadQuestion: function(questionData) {
-
-			this.getQuizContainer().empty();
-
-			return new Templater('elements/question', questionData)
-						.then(this.injectQuestion.bind(this));
-		},
-
-		injectQuestion: function($element) {
-
-			var $buttons;
-
-			this.getQuizContainer()
-
-			$buttons = $element.find('button');
-			
-			$buttons.each(function(key, button) {
-
-				var $button = $(button);
-
-				$button.bind('click', {
-					'key': $button.data('key')
-				}, this.answerClick.bind(this));
-			}.bind(this));
-		},
-
-		/**
 		 * Returns the current Quiz container DOM element
 		 *
 		 * @return {[type]} [description]
 		 */
-		getQuizContainer: function() {
+		getContainer: function() {
 
 			return $('#application-quiz-content');
-		},
-
-		/**
-		 * Button click callback
-		 *
-		 * @param  {[type]} event [description]
-		 * @return {[type]}       [description]
-		 */
-		answerClick: function(event) {
-
-			var currentQuestion = this.getCurrentQuestion(),
-				right = event.data.key == currentQuestion.correct;
-
-			this.updateStatus(right);
-			this.loadFeedback(right)
 		},
 
 		/**
@@ -238,7 +144,7 @@ define([
 			this.status.unanswered--;
 			this.status[right ? 'right' : 'wrong']++;
 
-			this.updateChart();
+			this.chart.setData(this.getChartData());
 		},
 
 		/**
@@ -255,37 +161,6 @@ define([
 			});
 		},
 
-		/**
-		 * Loads the feedback after a question has been
-		 * answered
-		 *
-		 * @param  {[type]} right [description]
-		 * @return {[type]}       [description]
-		 */
-		loadFeedback: function(right) {
-
-			var currentQuestion = this.getCurrentQuestion();
-
-			return new Templater('elements/feedback', {
-				'title':					right ? 'Goedzo' : 'Fout',
-				'text':						currentQuestion.feedback,
-				'currentQuestionNumber':	currentQuestion.questionNumber,
-				'video':					this.getVideoUrl(),
-			}).then(this.injectFeedback.bind(this));
-		},
-
-		/**
-		 * [injectFeedback description]
-		 *
-		 * @param  {[type]} $element [description]
-		 * @return {[type]}          [description]
-		 */
-		injectFeedback: function($element) {
-
-			this.getQuizContainer().html($element);
-
-			$element.bind('click', {}, this.nextPage.bind(this));
-		},
 
 		/**
 		 * Decides what the next pages is
@@ -303,42 +178,6 @@ define([
 		},
 
 		/**
-		 * Goes to the last page
-		 *
-		 * @return {[type]} [description]
-		 */
-		last: function() {
-
-			var score = Math.round((this.status.right / Questions.length) * 100);
-
-			return new Templater('elements/last', $.extend(this.status, {
-				'score': score,
-				'feedback': this.getQuizFeedback(score)
-			})).then(function($element) {
-
-				this.getQuizContainer()
-					.html($element);
-
-				$element.bind('click', {}, this.quit.bind(this));
-			}.bind(this));
-
-		},
-
-		getQuizFeedback: function(score) {
-
-			var feedback = 'default.feedback';
-
-			$.each(QuizFeedback, function(key, QuizFeedbackScore) {
-				
-				if (QuizFeedbackScore.withinPercentage <= score) {
-					feedback = QuizFeedbackScore.feedback;
-				}
-			});
-
-			return feedback;
-		},
-
-		/**
 		 * Goes to the next question
 		 *
 		 * @return {Function} [description]
@@ -347,8 +186,17 @@ define([
 
 			this.currentQuestion++;
 
-			this.loadQuestion(this.getCurrentQuestion());
+			this.question = new QuizQuestion(this);
 
+		},
+
+		/**
+		 * Load the score page
+		 * @return {[type]} [description]
+		 */
+		last: function() {
+
+			return new QuizScore(this);
 		},
 
 		/**
@@ -359,18 +207,6 @@ define([
 		quit: function() {
 
 			this.application.removeQuiz();
-		},
-
-		/**
-		 * Returns the URL of the video
-		 *
-		 * @return {string} VideoURL
-		 */
-		getVideoUrl: function(videoName) {
-
-			var url = 'dist/movies/' + (videoName || this.currentQuestion) + '.webm';
-
-			return url;
 		},
 
 		destroy: function() {
