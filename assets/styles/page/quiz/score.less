@@ -1,0 +1,78 @@
+.mixin-right-wrong(@color) {
+	background-color: mix(#fff, @color, 50%);
+	border:1px solid mix(#000, @color, 20%);
+}
+
+#quiz-element-score {
+
+	width:600px;
+	height:600px;
+	position:absolute;
+	top:50%;
+	margin-top:-300px;
+	left:50%;
+	margin-left:-300px;
+	padding:50px;
+	border-radius:25px;
+	background-color: @color-ongehoord-blue;
+	color: #fff;
+
+	h1 {
+		text-align: center;
+	}
+
+	> .feedback {
+		background-color:@color-ongehoord-pink;
+		transform:rotate(-2deg);
+		padding:20px;
+		border:2px solid #fff;
+
+		font-size:30px;
+		border-radius:10px;
+		box-shadow:0 0 10px #000;
+
+	}
+
+	> .right-wrongs {
+		background-color:#fff;
+		color:@color-ongehoord-blue;
+		box-shadow:0 0 10px #000;
+		border-radius:15px;
+		padding:30px;
+		transform:rotate(2deg);
+
+		.right, .wrong {
+			padding:5px;
+			margin-bottom:5px;
+			border-radius:4px;
+		}
+
+		.right { .mixin-right-wrong(@color-green); }
+		.wrong { .mixin-right-wrong(@color-red); }
+
+		.label {
+			display: inline-block;
+			width: 200px;
+			font-weight:700;
+		}
+	}
+
+	position:relative;
+
+	> .score {
+		font-family:'Bebas';
+		position:absolute;
+		width:150px;
+		height:150px;
+		line-height:170px;
+		text-align:center;
+		top:-75px;
+		right:-75px;
+		background-image:url(../img/star.svg);
+		background-size: 100% 100%;
+		// background:magenta;
+		font-size:40px;
+		font-weight:700;
+		transform:rotate(14deg);
+	}
+}
