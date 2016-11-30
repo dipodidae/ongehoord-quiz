@@ -1,0 +1,40 @@
+@quiz-feedback-page-padding: 64px;
+
+.quiz-feedback-border-mixin(@color) {
+	padding: 30px;
+	border-radius:15px;
+	box-shadow:0 0 10px @color;
+	background-color:@color;
+	border:2px solid white;
+}
+
+#quiz-feedback {
+	
+	> .text {
+		.quiz-feedback-border-mixin(@color-ongehoord-green);
+		float:right;
+		width: 700px;
+		margin:@quiz-feedback-page-padding;
+		color:white;
+		margin-right:140px;
+		margin-top:60px;
+		transform:rotate(2deg);
+	}
+
+	.msg.any-button {
+		.quiz-feedback-border-mixin(@color-ongehoord-pink);
+		font-size: 30px;
+		position:absolute;
+		bottom:@quiz-feedback-page-padding;
+		color:#fff;
+		left:@quiz-feedback-page-padding;
+		transform:rotate(-2deg);
+	}
+}
+
+#quiz-feedback-video-container {
+	.quiz-feedback-border-mixin(@color-ongehoord-blue);	
+
+	float:left;
+	margin:@quiz-feedback-page-padding;
+}
