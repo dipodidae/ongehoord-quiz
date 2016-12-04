@@ -42,5 +42,5 @@ module.exports = function (grunt) {
 		},
 	});
 	 // the default task (running "grunt" in console) is "watch"
-	 grunt.registerTask('default', ['watch']);
+	 grunt.registerTask('default', ['less']);
 };

@@ -54,7 +54,7 @@ define([
 
 			this.setQuestions();
 
-			this.chart = new QuizChart(this.getChartData());
+			// this.chart = new QuizChart(this.getChartData());
 
 			this.question = new QuizQuestion(this);
 			
@@ -144,7 +144,10 @@ define([
 			this.status.unanswered--;
 			this.status[right ? 'right' : 'wrong']++;
 
-			this.chart.setData(this.getChartData());
+			if (this.chart) {
+				
+				this.chart.setData(this.getChartData());
+			}
 		},
 
 		/**

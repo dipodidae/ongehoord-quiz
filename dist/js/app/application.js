@@ -5,6 +5,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 	function Application() {
 
+		this.setParams();
 		this.initialize();
 		this.show();
 	}
@@ -14,11 +15,28 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 		keyCache: [],
 
 		/**
+		 * Default params
+		 */
+		params: {
+			screen: '01'
+		},
+
+		/**
 		 * Initializes the Application object
 		 *
 		 * @param  {Page}		Page object
 		 * @return {undefined}
 		 */
+
+		setParams: function() {
+			
+			var params = this.getQueryParams(document.location.search);
+
+			$.each(params, function(param, value) {
+
+				this.params[param] = value;
+			}.bind(this));
+		},
 
 		show: function() {
 
@@ -27,9 +45,32 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 		initialize: function() {
 
-			this.physicalButtons = Buttons;
+			$.each(Buttons, function(num, screen) {
+
+				if (screen.screen === this.params.screen) {
+
+					this.physicalButtons = screen.buttons;
+				}
+			}.bind(this));
 
 			this.bindEvents();
+		},
+
+		getQueryParams: function(locationString) {
+
+			var params = {},
+			tokens,
+			re = /[?&]?([^=]+)=([^&]*)/g;
+
+			locationString = locationString.split("+").join(" ");
+
+			while (tokens = re.exec(locationString)) {
+			
+				params[decodeURIComponent(tokens[1])]
+							= decodeURIComponent(tokens[2]);
+			}
+
+			return params;
 		},
 
 		/**

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	</head>
+	<body>
+		<span style='font-size:220px;' id='code'>X</span>
+		<script
+			src="bower_components/jquery/dist/jquery.min.js"
+			crossorigin="anonymous"></script>
+		<script>
+			$(function(){
+
+				function keyDown(event) {
+
+					$('#code').html(event.which);
+				}
+
+				$(document).keydown(keyDown);
+			});
+		</script>
+	</body>
+</html>
