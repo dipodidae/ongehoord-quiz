@@ -26,21 +26,19 @@ define(function() {
 			'screen': '02',
 			'buttons': [
 				{
-					'color': 'green',
+					'color': 'red',
 					'quizAnswer': 'a',
+					'eventcode': 51
+				},
+				{
+					'color': 'green',
+					'quizAnswer': 'b',
 					'eventcode': 49
 				},
-
 				{
-					'color': 'yellow',
-					'quizAnswer': 'b',
-					'eventcode': 50
-				},
-
-				{
-					'color': 'purple',
+					'color': 'blue',
 					'quizAnswer': 'c',
-					'eventcode': 51
+					'eventcode': 52
 				}
 			]
 		},
