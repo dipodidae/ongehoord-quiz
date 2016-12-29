@@ -1,4 +1,4 @@
-define(['bower/chartist/dist/chartist'], function(Chartist) {
+define([], function() {
 
 	function Chart(data) {
 

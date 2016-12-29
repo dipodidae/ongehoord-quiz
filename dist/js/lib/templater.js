@@ -29,7 +29,12 @@ define(['bower/handlebars/handlebars.min', 'rsvp'], function(Handlebars, RSVP) {
 
 		initialize: function() {
 
-			return this.getSource().then(this.setElement.bind(this));
+			return this.getSource()
+				.then(this.setElement.bind(this))
+				.catch(function(error) {
+
+					console.error(error);
+				});
 		},
 
 		getSource: function() {
@@ -39,7 +44,7 @@ define(['bower/handlebars/handlebars.min', 'rsvp'], function(Handlebars, RSVP) {
 			return new RSVP.Promise(function(resolve, reject) {
 
 				require([path], function(source) {
-						
+
 					if (source) {
 						resolve(source);
 					} else {

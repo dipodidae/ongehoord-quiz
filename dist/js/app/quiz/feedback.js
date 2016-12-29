@@ -5,7 +5,7 @@ define(['lib/templater'], function(Templater) {
 		this.quiz = quiz || {};
 
 		this.right = right || false;
-		
+
 		this.init();
 
 	}
@@ -29,7 +29,7 @@ define(['lib/templater'], function(Templater) {
 
 		/**
 		 * [setData description]
-		 * 
+		 *
 		 * @param {[type]} data [description]
 		 */
 		setData: function(data) {
@@ -51,7 +51,12 @@ define(['lib/templater'], function(Templater) {
 		 */
 		load: function(right) {
 
-			this.getTemplate().then(this.inject.bind(this));
+			this.getTemplate()
+				.then(this.inject.bind(this))
+				.catch(function(error) {
+
+					console.error(error);
+				});
 		},
 
 		/**

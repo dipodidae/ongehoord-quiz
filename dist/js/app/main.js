@@ -3,7 +3,7 @@ define(["jquery", "application", 'bower/handlebars/handlebars.min'], function($,
 	var app;
 
 	Handlebars.registerHelper('each', function(context, options) {
-	
+
 		var ret = "";
 
 		for (var i=0, j=context.length; i<j; i++) {
@@ -14,7 +14,7 @@ define(["jquery", "application", 'bower/handlebars/handlebars.min'], function($,
 	});
 
 	$(function() {
-	
+
 		app = new Application();
 	});
 });

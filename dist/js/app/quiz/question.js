@@ -30,7 +30,12 @@ define(['lib/templater', 'quiz/feedback'], function(Templater, QuizFeedback) {
 
 			this.quiz.getContainer().empty();
 
-			this.getTemplate().then(this.inject.bind(this));
+			this.getTemplate()
+				.then(this.inject.bind(this))
+				.catch(function(error) {
+
+					console.error(error);
+				});
 		},
 
 		getTemplate: function() {
@@ -45,7 +50,7 @@ define(['lib/templater', 'quiz/feedback'], function(Templater, QuizFeedback) {
 			this.quiz.getContainer().html($element);
 
 			$buttons = $element.find('button');
-			
+
 			$buttons.each(function(key, button) {
 
 				var $button = $(button);
