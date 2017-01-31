@@ -28,7 +28,7 @@ define(function() {
 				{
 					'color': 'red',
 					'quizAnswer': 'a',
-					'eventcode': 51
+					'eventcode': 103
 				},
 				{
 					'color': 'green',
@@ -48,19 +48,19 @@ define(function() {
 				{
 					'color': 'green',
 					'quizAnswer': 'a',
-					'eventcode': 49
+					'eventcode': 36
 				},
 
 				{
 					'color': 'yellow',
 					'quizAnswer': 'b',
-					'eventcode': 50
+					'eventcode': 38
 				},
 
 				{
 					'color': 'purple',
 					'quizAnswer': 'c',
-					'eventcode': 51
+					'eventcode': 33
 				}
 			]
 		}

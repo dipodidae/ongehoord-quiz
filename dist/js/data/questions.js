@@ -15,51 +15,63 @@ define(function() {
 		},
 		{
 			"image": "mudbath.jpg",
-			"title": "zintuigen",
-			"question": "x",
+			"title": "Psychische klachten",
+			"question": "Varkens zouden soms ook wel een psycholoog kunnen gebruiken. Van welke psychische klacht hebben zij last?",
 			"answers": [
-				{"key": "a", "answer": "x"},
-				{"key": "b", "answer": "x"},
-				{"key": "c", "answer": "x"},
-			],
-			"correct": "c",
-			"feedback": "x"
-		},
-		{
-			"image": "mudbath.jpg",
-			"title": "zintuigen",
-			"question": "y",
-			"answers": [
-				{"key": "a", "answer": "y"},
-				{"key": "b", "answer": "y"},
-				{"key": "c", "answer": "y"},
-			],
-			"correct": "c",
-			"feedback": "y"
-		},
-		{
-			"image": "mudbath.jpg",
-			"title": "zintuigen",
-			"question": "z",
-			"answers": [
-				{"key": "a", "answer": "z"},
-				{"key": "b", "answer": "z"},
-				{"key": "c", "answer": "z"},
+				{"key": "a", "answer": "Schizofrenie"},
+				{"key": "b", "answer": "Depressie"},
+				{"key": "c", "answer": "Autisme"}
 			],
 			"correct": "b",
-			"feedback": "z"
+			"feedback": "Net als mensen, hebben varkens een hoop emoties en karaktereigenschappen. Het ene varken is veerkrachtig, terwijl de ander zeer gevoelig kan zijn en kan lijden aan depressie. Veel varkens die beperkt zijn in de kleine ruimtes in de vee-industrie, raken in een zware depressie."
 		},
 		{
 			"image": "mudbath.jpg",
-			"title": "zintuigen",
-			"question": "a",
+			"title": "Geheugen",
+			"question": "Net als honden, kunnen varkens hun naam onthouden. Als ze een naam krijgen, reageren ze al op die naam binnen",
 			"answers": [
-				{"key": "a", "answer": "a"},
-				{"key": "b", "answer": "a"},
-				{"key": "c", "answer": "a"},
+				{"key": "a", "answer": "de eerste week na hun geboorte"},
+				{"key": "b", "answer": "10 dagen na de geboorte"},
+				{"key": "c", "answer": "de eerste maand na de geboorte"},
 			],
 			"correct": "a",
-			"feedback": "a"
+			"feedback": "Varkens hebben een goed geheugen. Ze kunnen tot wel dertig varkens herkennen en onthouden. Wist je dat varkens ook een goed richtingsgevoel hebben en de ze de weg vinden over grote afstand?"
+		},
+		{
+			"image": "mudbath.jpg",
+			"title": "Een nest maken",
+			"question": "Hoe ver kan een moederarken rondtrekken voor een geschikte plek voor een nest?",
+			"answers": [
+				{"key": "a", "answer": "Één kiloleter"},
+				{"key": "b", "answer": "Tien kilometer"},
+				{"key": "c", "answer": "Vijftig kilometer"},
+			],
+			"correct": "b",
+			"feedback": "Zeugen zijn zorgzame moeders met een diepe affectie voor hun biggen. In de natuur zal een zeug voordat ze gaat bevallen, een groot nest bouwen om haar biggen te beschermen. Daarbij let ze op de kwaliteit van het nest en de locatie."
+		},
+		{
+			"image": "mudbath.jpg",
+			"title": "Theory of mind",
+			"question": "Varkens beschikken waarschijnlijk over een 'theory of mind'. Wat houdt dat in?",
+			"answers": [
+				{"key": "a", "answer": "Ze denken na over de werking van hun eigen hersenen"},
+				{"key": "b", "answer": "Ze kunnen theoretische problemen oplossen"},
+				{"key": "c", "answer": "Ze begrijpen wat er omgaat in de gedachten van andere varkens"},
+			],
+			"correct": "c",
+			"feedback": "Bij een experiment op de universiteit van Bristol, had een van de tien geteste varkens door wat een ander varken kon zien. Dit slimme varken volgde het varken die gezien had waar het voer lag. Op deze manier kwam het slimme varken zelf ook bij het voer. Alleen bij chimpansees en mensen is vergelijkbaar gedrag gezien."
+		},
+		{
+			"image": "mudbath.jpg",
+			"title": "Sociale groepen",
+			"question": "Hoe begroeten varkens elkaar?",
+			"answers": [
+				{"key": "a", "answer": "Ze klikken met hun hoeven"},
+				{"key": "b", "answer": "Ze wrijven met hun neuzen"},
+				{"key": "c", "answer": "Ze gillen naar elkaar"},
+			],
+			"correct": "b",
+			"feedback": "Varkens werken veel samen en ze tonen affectie door elkaar te verzorgen. Net als mensen en veel andere dieren, hebben varkens sociale groepen en zijn ze in staat het gedrag van andere groepsleden te evalueren, om zo te begrijpen wie in hun groep dominant is."
 		}
 	];
 });

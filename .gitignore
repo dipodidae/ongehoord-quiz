@@ -3,6 +3,7 @@
 quiz.sublime-project
 /doc/
 /old/
+/dist/movies/
 /bower_components/
 /node_modules/
 /dist/css/

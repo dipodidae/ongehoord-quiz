@@ -92,7 +92,7 @@ define(['lib/templater'], function(Templater) {
 		 */
 		getVideoUrl: function(videoName) {
 
-			var url = 'dist/movies/' + (videoName || this.quiz.currentQuestion) + '.webm';
+			var url = 'dist/movies/' + (videoName || this.quiz.currentQuestion) + '.mp4';
 
 			return url;
 		}

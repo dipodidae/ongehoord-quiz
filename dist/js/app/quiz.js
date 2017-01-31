@@ -54,7 +54,7 @@ define([
 
 			this.setQuestions();
 
-			// this.chart = new QuizChart(this.getChartData());
+			this.chart = new QuizChart(this.getChartData());
 
 			this.question = new QuizQuestion(this);
 			

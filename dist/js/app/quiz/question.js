@@ -69,7 +69,7 @@ define(['lib/templater', 'quiz/feedback'], function(Templater, QuizFeedback) {
 
 			this.quiz.updateStatus(right);
 
-			this.feedback = new QuizFeedback(this.quiz);
+			this.feedback = new QuizFeedback(this.quiz, right);
 		},
 	};
 

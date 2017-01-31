@@ -215,9 +215,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 		},
 
 		removeQuiz: function() {
-			this.quiz.destroy();
-			delete this.quiz;
-			this.show();
+			location.reload();
 		}
 	}
 
