@@ -29,7 +29,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 		 */
 
 		setParams: function() {
-			
+
 			var params = this.getQueryParams(document.location.search);
 
 			$.each(params, function(param, value) {
@@ -40,7 +40,12 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 
 		show: function() {
 
-			new Page('index').then(this.bindPageEvents.bind(this));
+			new Page('index')
+				.then(this.bindPageEvents.bind(this))
+				.catch(function(error) {
+
+					console.error(error);
+				});
 		},
 
 		initialize: function() {
@@ -65,7 +70,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 			locationString = locationString.split("+").join(" ");
 
 			while (tokens = re.exec(locationString)) {
-			
+
 				params[decodeURIComponent(tokens[1])]
 							= decodeURIComponent(tokens[2]);
 			}

@@ -17,11 +17,16 @@ define([
 
 		this.application = application || {};
 
-		new Page('quiz').then(this.init.bind(this));
+		new Page('quiz')
+			.then(this.init.bind(this))
+			.catch(function(error) {
+
+				console.error(error);
+			});
 	}
 
 	Quiz.prototype = {
-			
+
 		questions: [],
 
 		elements: {
@@ -57,9 +62,6 @@ define([
 			this.chart = new QuizChart(this.getChartData());
 
 			this.question = new QuizQuestion(this);
-			
-			this.loadQuestion(this.getCurrentQuestion());
-
 		},
 
 		/**
@@ -100,9 +102,9 @@ define([
 			$.each(Questions, function(key, questionData) {
 
 				$.each(questionData.answers, function(key, answer) {
-				
+
 					var button = this.application.physicalButtons.filter(function(buttonData) {
-				
+
 						return buttonData.quizAnswer == answer.key;
 					});
 
@@ -145,7 +147,7 @@ define([
 			this.status[right ? 'right' : 'wrong']++;
 
 			if (this.chart) {
-				
+
 				this.chart.setData(this.getChartData());
 			}
 		},

@@ -3,7 +3,7 @@ define(['lib/templater', 'data/questions', 'data/quizfeedback'], function(Templa
 	function Score(quiz) {
 
 		this.quiz = quiz || {};
-		
+
 		this.init();
 
 	}
@@ -31,7 +31,12 @@ define(['lib/templater', 'data/questions', 'data/quizfeedback'], function(Templa
 		 */
 		load: function() {
 
-			this.getTemplate().then(this.inject.bind(this));
+			this.getTemplate()
+				.then(this.inject.bind(this))
+				.catch(function(error) {
+
+					console.error(error);
+				});
 		},
 
 		/**
@@ -74,7 +79,7 @@ define(['lib/templater', 'data/questions', 'data/quizfeedback'], function(Templa
 				score = this.getScore();
 
 			$.each(Feedback, function(key, QuizFeedbackScore) {
-				
+
 				if (QuizFeedbackScore.withinPercentage <= score) {
 					feedback = QuizFeedbackScore.feedback;
 				}

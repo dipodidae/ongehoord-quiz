@@ -14,14 +14,20 @@ define(['rsvp', 'lib/templater'], function(RSVP, Templater) {
 
 			return new RSVP.Promise(function(resolve, reject) {
 
-				this.getTemplate().then(function($element) {
+				this.getTemplate()
+
+				.then(function($element) {
 
 					this.$el = $element;
 
 					this.inject();
 
 					resolve(this);
-				}.bind(this));
+				}.bind(this))
+				.catch(function(error) {
+
+					console.error(error);
+				});
 			}.bind(this));
 		},
 
