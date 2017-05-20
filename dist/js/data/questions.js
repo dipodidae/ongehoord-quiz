@@ -30,9 +30,9 @@ define(function() {
 			"title": "Geheugen",
 			"question": "Net als honden, kunnen varkens hun naam onthouden. Als ze een naam krijgen, reageren ze al op die naam binnen",
 			"answers": [
-				{"key": "a", "answer": "de eerste week na hun geboorte"},
-				{"key": "b", "answer": "10 dagen na de geboorte"},
-				{"key": "c", "answer": "de eerste maand na de geboorte"},
+				{"key": "a", "answer": "De eerste week na hun geboorte"},
+				{"key": "b", "answer": "Tien dagen na de geboorte"},
+				{"key": "c", "answer": "De eerste maand na de geboorte"},
 			],
 			"correct": "a",
 			"feedback": "Varkens hebben een goed geheugen. Ze kunnen tot wel dertig varkens herkennen en onthouden. Wist je dat varkens ook een goed richtingsgevoel hebben en de ze de weg vinden over grote afstand?"
@@ -40,9 +40,9 @@ define(function() {
 		{
 			"image": "mudbath.jpg",
 			"title": "Een nest maken",
-			"question": "Hoe ver kan een moederarken rondtrekken voor een geschikte plek voor een nest?",
+			"question": "Hoe ver kan een moedervarken rondtrekken voor een geschikte plek voor een nest?",
 			"answers": [
-				{"key": "a", "answer": "Één kiloleter"},
+				{"key": "a", "answer": "Een kilometer"},
 				{"key": "b", "answer": "Tien kilometer"},
 				{"key": "c", "answer": "Vijftig kilometer"},
 			],
