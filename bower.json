@@ -20,7 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "video.js": "latest",
+    "video.js": "~5",
     "jquery": "latest",
     "requirejs": "latest",
     "requirejs-text": "latest",
