@@ -46,21 +46,21 @@ define(function() {
 			'screen': '03',
 			'buttons': [
 				{
-					'color': 'green',
+					'color': 'red',
 					'quizAnswer': 'a',
-					'eventcode': 36
+					'eventcode': 69
 				},
 
 				{
-					'color': 'yellow',
+					'color': 'green',
 					'quizAnswer': 'b',
-					'eventcode': 38
+					'eventcode': 77
 				},
 
 				{
-					'color': 'purple',
+					'color': 'blue',
 					'quizAnswer': 'c',
-					'eventcode': 33
+					'eventcode': 82
 				}
 			]
 		}
