@@ -1,0 +1,43 @@
+
+#application-quiz-chart-container {
+	
+	position:absolute;
+
+	top:20px;
+	z-index:999;
+	left:20px;
+	background: fade(white, 50%);
+	border:1px solid white;
+	padding:5px;
+	transform: rotate(-0.01turn);
+
+	> .inner {
+
+		text-align: center;
+
+		position:relative;		
+
+		> h1 {
+			font-size:16px;
+			display: inline-block;
+			padding:3px 20px;
+			color: @color-primary;
+			border:1px solid @color-primary;
+		}
+	}
+	
+	#application-quiz-chart {
+		width:200px;
+		height:200px;
+
+		//unanswered
+		.ct-series-a { .mixin-ct-slice-pie(@color-quiz-chart-unanswered); }
+
+		//right
+		.ct-series-b { .mixin-ct-slice-pie(@color-quiz-chart-right); }
+
+		//wrong
+		.ct-series-c { .mixin-ct-slice-pie(@color-quiz-chart-wrong); }
+	}
+
+}

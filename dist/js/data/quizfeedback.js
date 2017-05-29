@@ -3,27 +3,27 @@ define(function() {
 	return [
 		{
 			"withinPercentage": 0,
-			"feedback": "Wow, geen enkel antwoord goed! Je weet nog niets over varkens. We nodigen je uit om een kijkje te nemen in de stal om meer te weten over deze leuke dieren!"
+			"feedback": "Wow, geen enkel antwoord goed. Gelukkig hebben anarchisten met elkaar afgesproken dat ze niet al te merkbaar kameraden uitlachen."
 		},
 
 		{
 			"withinPercentage": 20,
-			"feedback": "Je weet nog niet zoveel over varkens. We nodigen je uit om een kijkje te nemen in de stal om meer te weten over deze leuke dieren!"
+			"feedback": "Wauw, je hebt een beetje goed. "
 		},
 
 		{
 			"withinPercentage": 50,
-			"feedback": "Je weet al een beetje over varkens. We nodigen je uit om een kijkje te nemen in de stal om meer te weten over deze leuke dieren!"
+			"feedback": "Je weet een beetje over anarchisme"
 		},
 
 		{
 			"withinPercentage": 70,
-			"feedback": "Je weet al vrij veel over varkens. We nodigen je uit om een kijkje te nemen in de stal om meer te weten over deze leuke dieren!"
+			"feedback": "Je weet veel over anarchisme. "
 		},
 		
 		{
 			"withinPercentage": 100,
-			"feedback": "Je weet al alles over varkens! Kom verder verder om te kijken of je de dingen die we verderop in de bus laten zien ook al weet"
+			"feedback": "Je bent een geweldige anarchist!"
 		}
 	];
 });

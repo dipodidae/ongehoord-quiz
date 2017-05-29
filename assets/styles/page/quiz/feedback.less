@@ -11,23 +11,25 @@
 #quiz-feedback {
 	
 	> .text {
-		.quiz-feedback-border-mixin(@color-ongehoord-green);
+		.quiz-feedback-border-mixin(@color-primary);
 		float:right;
-		width: 700px;
+		width: 900px;
 		margin:@quiz-feedback-page-padding;
 		color:white;
 		margin-right:140px;
 		margin-top:60px;
-		transform:rotate(2deg);
+		h3 {
+			font-size:28px;
+		}
 	}
 
 	.msg.any-button {
 		.quiz-feedback-border-mixin(@color-ongehoord-pink);
 		font-size: 30px;
 		position:absolute;
-		bottom:@quiz-feedback-page-padding;
+		top: 40px;
 		color:#fff;
-		left:@quiz-feedback-page-padding;
+		left:200px;
 		transform:rotate(-2deg);
 	}
 }
@@ -35,6 +37,8 @@
 #quiz-feedback-video-container {
 	.quiz-feedback-border-mixin(@color-ongehoord-blue);	
 
-	float:left;
+	position:absolute;
+	bottom:20px;
+	left:20px;
 	margin:@quiz-feedback-page-padding;
 }
