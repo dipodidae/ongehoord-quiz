@@ -126,7 +126,7 @@ define(['lib/page', 'data/buttons', 'quiz'], function(Page, Buttons, Quiz) {
 			this.triggerButton(buttonData.color);
 		},
 
-		keyDown: function(event) {
+		keyDown: function() {
 
 			var removeQuiz = true;
 
