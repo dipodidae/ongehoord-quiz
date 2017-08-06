@@ -70,19 +70,19 @@ define(function() {
 				{
 					'color': 'red',
 					'quizAnswer': 'a',
-					'eventcode': 49
+					'eventcode': 69
 				},
 
 				{
 					'color': 'green',
 					'quizAnswer': 'b',
-					'eventcode': 50
+					'eventcode': 77
 				},
 
 				{
 					'color': 'blue',
 					'quizAnswer': 'c',
-					'eventcode': 51
+					'eventcode': 82
 				}
 			]
 		}
